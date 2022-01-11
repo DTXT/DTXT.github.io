@@ -6,7 +6,7 @@
   <link href="https://dtxt.github.io/atom.xml" rel="self"/>
   
   <link href="https://dtxt.github.io/"/>
-  <updated>2022-01-08T07:26:43.354Z</updated>
+  <updated>2022-01-11T12:56:53.643Z</updated>
   <id>https://dtxt.github.io/</id>
   
   <author>
@@ -17,18 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>项目笔记</title>
+    <link href="https://dtxt.github.io/2022/01/10/gulimall-bi-ji/"/>
+    <id>https://dtxt.github.io/2022/01/10/gulimall-bi-ji/</id>
+    <published>2022-01-10T09:48:19.000Z</published>
+    <updated>2022-01-11T12:56:53.643Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;feign使用&quot;&gt;Feign使用&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;1、启动类加入注解&lt;/p&gt;
+&lt;pre class=&quot; language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://dtxt.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="商城" scheme="https://dtxt.github.io/tags/%E5%95%86%E5%9F%8E/"/>
+    
+  </entry>
+  
+  <entry>
     <title>我的第一篇文章</title>
-    <link href="https://dtxt.github.io/2022/01/08/wo-de-di-yi-pian-wen-zhang/"/>
-    <id>https://dtxt.github.io/2022/01/08/wo-de-di-yi-pian-wen-zhang/</id>
+    <link href="https://dtxt.github.io/2022/01/08/typora-jian-dan-shi-yong/"/>
+    <id>https://dtxt.github.io/2022/01/08/typora-jian-dan-shi-yong/</id>
     <published>2022-01-08T06:59:42.000Z</published>
-    <updated>2022-01-08T07:26:43.354Z</updated>
+    <updated>2022-01-11T12:57:14.656Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Markdown学习&quot;&gt;&lt;a href=&quot;#Markdown学习&quot; class=&quot;headerlink&quot; title=&quot;Markdown学习&quot;&gt;&lt;/a&gt;Markdown学习&lt;/h1&gt;&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot;</summary>
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;markdown学习&quot;&gt;Markdown学习&lt;/span&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;标题&quot;&gt;标题&lt;/span&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;三级标题&quot;&gt;三级标题&lt;/span&gt;&lt;/h3&gt;&lt;h4&gt;&lt;span</summary>
         
       
     
@@ -38,27 +64,6 @@
     
     
     <category term="md" scheme="https://dtxt.github.io/tags/md/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://dtxt.github.io/2022/01/08/hello-world/"/>
-    <id>https://dtxt.github.io/2022/01/08/hello-world/</id>
-    <published>2022-01-08T03:16:40.275Z</published>
-    <updated>2022-01-08T03:16:40.275Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
