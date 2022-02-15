@@ -471,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-08
+                    2022-01-15
                 </div>
                 
 
@@ -788,9 +788,9 @@ class Ticket2 {
 <span class="token punctuation">}</span>
 </code></pre>
 <p>如果有abcd4个线程2+2-，这时候就会出现问题：虚假唤醒</p>
-<p><img src="/2022/01/08/juc/image-20211128133149073.png" alt="image-20211128133149073"></p>
+<p><img src="/2022/01/15/juc/image-20211128133149073.png" alt="image-20211128133149073"></p>
 <p><strong>if改为while</strong></p>
-<h3><span id="juc版">JUC版</span></h3><p><img src="/2022/01/08/juc/image-20211128144543100.png" alt="image-20211128144543100"></p>
+<h3><span id="juc版">JUC版</span></h3><p><img src="/2022/01/15/juc/image-20211128144543100.png" alt="image-20211128144543100"></p>
 <pre class=" language-JAVA"><code class="language-JAVA">package com.lpc.pc;
 
 import java.util.concurrent.locks.Condition;
@@ -908,7 +908,7 @@ class Date2 {
 }
 </code></pre>
 <p>无序</p>
-<p><img src="/2022/01/08/juc/image-20211128145637224.png" alt="image-20211128145637224"></p>
+<p><img src="/2022/01/15/juc/image-20211128145637224.png" alt="image-20211128145637224"></p>
 <h4><span id="condition监视器顺序唤醒线程">Condition监视器（顺序唤醒线程）</span></h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>pc<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>locks<span class="token punctuation">.</span>Condition<span class="token punctuation">;</span>
@@ -1286,7 +1286,7 @@ class Date2 {
 </ol>
 <p><strong>CopyOnWriteArrayList 写时复制，读写分离</strong></p>
 <p>既能保证数据的正确性，又不会使并发效率变低。它的add源码：</p>
-<p><img src="/2022/01/08/juc/image-20211128163846972.png" alt="image-20211128163846972"></p>
+<p><img src="/2022/01/15/juc/image-20211128163846972.png" alt="image-20211128163846972"></p>
 <ol>
 <li>复制一个原来数组副本，在副本里“写入元素”，最后再用写完的副本替换原本的数组，即我们在</li>
 <li>“写”时可以“读”，这两个操作所使用的不是一个数组，不会产生影响。</li>
@@ -1344,7 +1344,7 @@ class Date2 {
 </code></pre>
 <p>也就是说HashSet的底层就是HashMap</p>
 <h2><span id="map"><strong>Map</strong></span></h2><p>默认<strong>加载因子是0.75</strong>,默认的<strong>初始容量是16</strong></p>
-<p><img src="/2022/01/08/juc/image-20211128170110672.png" alt="image-20211128170110672"></p>
+<p><img src="/2022/01/15/juc/image-20211128170110672.png" alt="image-20211128170110672"></p>
 <p>同样的HashMap基础类也存在<strong>并发修改异常</strong>！</p>
 <pre class=" language-JAVA"><code class="language-JAVA">package com.lpc.unsafe;
 
@@ -1416,7 +1416,7 @@ class MyThread implements Callable<integer> {
 }
 </integer></code></pre>
 <h1><span id="常用的辅助类">常用的辅助类</span></h1><h2><span id="countdownlatch">CountDownLatch</span></h2><p>减法计数器</p>
-<p><img src="/2022/01/08/juc/image-20211128180749718.png" alt="image-20211128180749718"></p>
+<p><img src="/2022/01/15/juc/image-20211128180749718.png" alt="image-20211128180749718"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>add<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>CountDownLatch<span class="token punctuation">;</span>
@@ -1454,7 +1454,7 @@ class MyThread implements Callable<integer> {
 </ul>
 <p>await 等待计数器归零，就唤醒，再继续向下运行</p>
 <h2><span id="cyclickbarrier">CyclickBarrier</span></h2><p>加法计数器</p>
-<p><img src="/2022/01/08/juc/image-20211128181943651.png" alt="image-20211128181943651"></p>
+<p><img src="/2022/01/15/juc/image-20211128181943651.png" alt="image-20211128181943651"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>add<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>BrokenBarrierException<span class="token punctuation">;</span>
@@ -1496,7 +1496,7 @@ class MyThread implements Callable<integer> {
 <span class="token punctuation">}</span>
 </code></pre>
 <h2><span id="semaphore">Semaphore</span></h2><p>信号量</p>
-<p><img src="/2022/01/08/juc/image-20211128182926615.png" alt="image-20211128182926615"></p>
+<p><img src="/2022/01/15/juc/image-20211128182926615.png" alt="image-20211128182926615"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>add<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Time<span class="token punctuation">;</span>
@@ -1552,7 +1552,7 @@ class MyThread implements Callable<integer> {
 <p><strong>semaphore.acquire()获得资源，如果资源已经使用完了，就等待资源释放后再进行使用！</strong></p>
 <p><strong>semaphore.release()释放，会将当前的信号量释放+1，然后唤醒等待的线程！</strong></p>
 <p>作用： 多个共享资源互斥的使用！ 并发限流，控制最大的线程数！</p>
-<h1><span id="读写锁">读写锁</span></h1><p><img src="/2022/01/08/juc/image-20211128202611842.png" alt="image-20211128202611842"></p>
+<h1><span id="读写锁">读写锁</span></h1><p><img src="/2022/01/15/juc/image-20211128202611842.png" alt="image-20211128202611842"></p>
 <p><strong>ReadWriteLock</strong></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>rw<span class="token punctuation">;</span>
 
@@ -1688,12 +1688,12 @@ class MyThread implements Callable<integer> {
 <p>所以如果我们不加锁的情况，多线程的读写会造成数据不可靠的问题。</p>
 <p>我们也可以采用<strong>synchronized</strong>这种重量锁和轻量锁 <strong>lock</strong>去保证数据的可靠。</p>
 <p>但是这次我们采用更细粒度的锁：<strong>ReadWriteLock</strong> 读写锁来保证</p>
-<h1><span id="阻塞队列">阻塞队列</span></h1><img src="/2022/01/08/juc/image-20211128203800581.png" alt="image-20211128203800581">
+<h1><span id="阻塞队列">阻塞队列</span></h1><img src="/2022/01/15/juc/image-20211128203800581.png" alt="image-20211128203800581">
 
-<p><img src="/2022/01/08/juc/image-20211128204139870.png" alt="image-20211128204139870"></p>
+<p><img src="/2022/01/15/juc/image-20211128204139870.png" alt="image-20211128204139870"></p>
 <h2><span id="blockqueue">BlockQueue</span></h2><p>是Collection的一个子类</p>
 <p>什么情况下我们会使用阻塞队列：多线程并发处理、线程池</p>
-<p><img src="/2022/01/08/juc/image-20211128205210583.png" alt="image-20211128205210583"></p>
+<p><img src="/2022/01/15/juc/image-20211128205210583.png" alt="image-20211128205210583"></p>
 <p>BlockingQueue 有四组api</p>
 <table>
 <thead>
@@ -1867,7 +1867,7 @@ class MyThread implements Callable<integer> {
 <p>线程池、JDBC的连接池、内存池、对象池 等等。。。。</p>
 <p>资源的创建、销毁十分消耗资源</p>
 <p><strong>池化技术</strong>：事先准备好一些资源，如果有人要用，就来我这里拿，用完之后还给我，以此来提高效率。</p>
-<p><img src="/2022/01/08/juc/image-20211129115046821.png" alt="image-20211129115046821"></p>
+<p><img src="/2022/01/15/juc/image-20211129115046821.png" alt="image-20211129115046821"></p>
 <h2><span id="线程池的好处">线程池的好处：</span></h2><p>1、降低资源的消耗；</p>
 <p>2、提高响应的速度；</p>
 <p>3、方便管理；</p>
@@ -1952,8 +1952,8 @@ class MyThread implements Callable<integer> {
     <span class="token punctuation">}</span>
 </code></pre>
 <p>阿里巴巴的Java操作手册中明确说明：对于Integer.MAX_VALUE初始值较大，所以一般情况我们要使用底层的<strong>ThreadPoolExecutor</strong>来创建线程池。</p>
-<p><img src="/2022/01/08/juc/image-20211129121147520.png" alt="image-20211129121147520"></p>
-<h2><span id="四种拒绝策略">四种拒绝策略</span></h2><p><img src="/2022/01/08/juc/image-20211129121849457.png" alt="image-20211129121849457"></p>
+<p><img src="/2022/01/15/juc/image-20211129121147520.png" alt="image-20211129121147520"></p>
+<h2><span id="四种拒绝策略">四种拒绝策略</span></h2><p><img src="/2022/01/15/juc/image-20211129121849457.png" alt="image-20211129121849457"></p>
 <pre><code>1. new ThreadPoolExecutor.AbortPolicy()： //该拒绝策略为：银行满了，还有人进来，不处理这个人的，并抛出异常
 
 超出最大承载，就会抛出异常：队列容量大小+maxPoolSize
@@ -2027,11 +2027,11 @@ class MyThread implements Callable<integer> {
 <p><strong>I/O密集型就是判断我们程序中十分耗I/O的线程数量，大约是最大I/O数的一倍到两倍之间。</strong></p>
 <h1><span id="四大函数式接口">四大函数式接口(*)</span></h1><p>新时代的程序员：<strong>lambda表达式、链式编程、函数式接口、Stream流式计算</strong></p>
 <p>函数式接口：只有一个方法的接口</p>
-<p><img src="/2022/01/08/juc/image-20211129124442949.png" alt="image-20211129124442949"></p>
+<p><img src="/2022/01/15/juc/image-20211129124442949.png" alt="image-20211129124442949"></p>
 <p><strong>4大原生函数式接口</strong></p>
-<p><img src="/2022/01/08/juc/image-20211129124815898.png" alt="image-20211129124815898"></p>
+<p><img src="/2022/01/15/juc/image-20211129124815898.png" alt="image-20211129124815898"></p>
 <h2><span id="function-函数型接口">Function 函数型接口</span></h2><p>函数式接口：有一个输入参数，有一个输出</p>
-<p><img src="/2022/01/08/juc/image-20211129125547893.png" alt="image-20211129125547893"></p>
+<p><img src="/2022/01/15/juc/image-20211129125547893.png" alt="image-20211129125547893"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>function<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span>Function<span class="token punctuation">;</span>
@@ -2062,7 +2062,7 @@ class MyThread implements Callable<integer> {
 <span class="token punctuation">}</span>
 </code></pre>
 <h2><span id="predicate-断定型接口">Predicate 断定型接口</span></h2><p>断定型接口：有一个输入参数，返回值只能式boolean</p>
-<p><img src="/2022/01/08/juc/image-20211129140346388.png" alt="image-20211129140346388"></p>
+<p><img src="/2022/01/15/juc/image-20211129140346388.png" alt="image-20211129140346388"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>function<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span>Predicate<span class="token punctuation">;</span>
@@ -2092,7 +2092,7 @@ class MyThread implements Callable<integer> {
 <span class="token punctuation">}</span>
 </code></pre>
 <h2><span id="consummer-消费型接口">Consummer 消费型接口</span></h2><p>消费型接口：只有输入，没有返回值</p>
-<p><img src="/2022/01/08/juc/image-20211129141023291.png" alt="image-20211129141023291"></p>
+<p><img src="/2022/01/15/juc/image-20211129141023291.png" alt="image-20211129141023291"></p>
 <pre class=" language-JAVA"><code class="language-JAVA">package com.lpc.function;
 
 import java.util.function.Consumer;
@@ -2122,7 +2122,7 @@ public class Demo03 {
 }
 </string></string></string></code></pre>
 <h2><span id="suppier-供给型接口">Suppier 供给型接口</span></h2><p>供给型接口：没有参数，有返回值</p>
-<p><img src="/2022/01/08/juc/image-20211129141127727.png" alt="image-20211129141127727"></p>
+<p><img src="/2022/01/15/juc/image-20211129141127727.png" alt="image-20211129141127727"></p>
 <pre class=" language-JAVA"><code class="language-JAVA">package com.lpc.function;
 
 import java.util.function.Consumer;
@@ -2196,9 +2196,9 @@ public class Demo04 {
 <h1><span id="forkjoin">ForkJoin</span></h1><p>分支合并</p>
 <h2><span id="什么是forkjoin">什么是ForkJoin</span></h2><p>ForkJoin在jdk1.7，并行执行任务！提高效率。大数据量！</p>
 <p>大数据：<strong>MapReduce 核心思想-&gt;把大任务拆分为小任务！</strong></p>
-<p><img src="/2022/01/08/juc/image-20211129143700674.png" alt="image-20211129143700674"></p>
+<p><img src="/2022/01/15/juc/image-20211129143700674.png" alt="image-20211129143700674"></p>
 <h2><span id="forkjoin特点">ForkJoin特点</span></h2><p>工作窃取：B线程执行完了，偷A线程 一个任务来执行，提高效率！</p>
-<p><img src="/2022/01/08/juc/image-20211129143834653.png" alt="image-20211129143834653"></p>
+<p><img src="/2022/01/15/juc/image-20211129143834653.png" alt="image-20211129143834653"></p>
 <p>实现原理是：<strong>双端队列</strong>！从上面和下面都可以去拿到任务进行执行！</p>
 <h2><span id="如何使用forkjoin">如何使用ForkJoin?</span></h2><ul>
 <li>1、通过<strong>ForkJoinPool</strong>来执行</li>
@@ -2309,12 +2309,12 @@ public class Demo04 {
 <span class="token punctuation">}</span>
 </code></pre>
 <p><strong>.parallel().reduce(0, Long::sum)使用一个并行流去计算整个计算，提高效率。</strong></p>
-<p><img src="/2022/01/08/juc/image-20211129153524654.png" alt="image-20211129153524654"></p>
+<p><img src="/2022/01/15/juc/image-20211129153524654.png" alt="image-20211129153524654"></p>
 <h1><span id="异步回调">异步回调</span></h1><blockquote>
 <p>Future 设计的初衷：对将来的某个事件结果进行建模！</p>
 </blockquote>
 <p>其实就是前端 –&gt; 发送ajax异步请求给后端</p>
-<p><img src="/2022/01/08/juc/image-20211129155214089.png" alt="image-20211129155214089"></p>
+<p><img src="/2022/01/15/juc/image-20211129155214089.png" alt="image-20211129155214089"></p>
 <p>但是我们平时都使用<strong>CompletableFuture</strong></p>
 <h2><span id="没有返回值的runasync异步回调">没有返回值的runAsync异步回调</span></h2><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>future<span class="token punctuation">;</span>
 
@@ -2414,10 +2414,10 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 </ul>
 <p><strong>线程A</strong></p>
 <p>(图问题：先store在write)</p>
-<p><img src="/2022/01/08/juc/image-20211129163421440.png" alt="image-20211129163421440"></p>
+<p><img src="/2022/01/15/juc/image-20211129163421440.png" alt="image-20211129163421440"></p>
 <p><strong>线程B</strong></p>
 <p>(图问题：先store在write)</p>
-<p><img src="/2022/01/08/juc/image-20211129163722185.png" alt="image-20211129163722185"></p>
+<p><img src="/2022/01/15/juc/image-20211129163722185.png" alt="image-20211129163722185"></p>
 <p><strong>JMM对这8种操作给了相应的规定</strong>：</p>
 <ul>
 <li>不允许read和load、store和write操作之一单独出现。即使用了read必须load，使用了store必须write</li>
@@ -2462,7 +2462,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 </code></pre>
 <p><strong>我们发现运行后程序并没有结束？</strong></p>
 <p>线程A并不知道main线程已经修改了num，此时线程A的num依旧等于0，所以线程A没有停止</p>
-<p><img src="/2022/01/08/juc/image-20211129164629173.png" alt="image-20211129164629173"></p>
+<p><img src="/2022/01/15/juc/image-20211129164629173.png" alt="image-20211129164629173"></p>
 <h2><span id="volatile">volatile</span></h2><p><strong>volatile是JVM提供的轻量级的同步机制</strong></p>
 <p>用来解决上面那个问题</p>
 <h3><span id="保证可见性">保证可见性</span></h3><p>加入volatile关键子</p>
@@ -2536,9 +2536,9 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 </code></pre>
 <p><strong>如果不加lock和synchronized ，怎么样保证原子性？</strong></p>
 <p>num++;不是一个原子性操作原因</p>
-<p><img src="/2022/01/08/juc/image-20211129171735490.png" alt="image-20211129171735490"></p>
+<p><img src="/2022/01/15/juc/image-20211129171735490.png" alt="image-20211129171735490"></p>
 <p><strong>使用原子类</strong></p>
-<p><img src="/2022/01/08/juc/image-20211129172026912.png" alt="image-20211129172026912"></p>
+<p><img src="/2022/01/15/juc/image-20211129172026912.png" alt="image-20211129172026912"></p>
 <p><strong>AtomicInteger类</strong></p>
 <pre class=" language-JAVA"><code class="language-JAVA">package com.lpc._volatile;
 
@@ -2632,7 +2632,7 @@ y<span class="token operator">=</span>x<span class="token operator">*</span>x<sp
 <p>内存屏障作用：</p>
 <p>1、保证特定的操作的执行顺序；</p>
 <p>2、可以保证某些变量的内存可见性（利用这些特性，就可以保证volatile实现的可见性）</p>
-<p><img src="/2022/01/08/juc/image-20211129175023221.png" alt="image-20211129175023221"></p>
+<p><img src="/2022/01/15/juc/image-20211129175023221.png" alt="image-20211129175023221"></p>
 <h3><span id="总结">总结</span></h3><ul>
 <li><strong>volatile可以保证可见性；</strong></li>
 <li><strong>不能保证原子性</strong></li>
@@ -2845,11 +2845,11 @@ y<span class="token operator">=</span>x<span class="token operator">*</span>x<sp
 <blockquote>
 <p>Unsafe类</p>
 </blockquote>
-<p><img src="/2022/01/08/juc/image-20211129192605731.png" alt="image-20211129192605731"></p>
+<p><img src="/2022/01/15/juc/image-20211129192605731.png" alt="image-20211129192605731"></p>
 <p>+1操作都背后：是一个内存操作</p>
-<p><img src="/2022/01/08/juc/image-20211129193134675.png" alt="image-20211129193134675"></p>
+<p><img src="/2022/01/15/juc/image-20211129193134675.png" alt="image-20211129193134675"></p>
 <p>他也是个自旋锁</p>
-<p><img src="/2022/01/08/juc/image-20211129193544640.png" alt="image-20211129193544640"></p>
+<p><img src="/2022/01/15/juc/image-20211129193544640.png" alt="image-20211129193544640"></p>
 <h2><span id="总结">总结</span></h2><p>CAS：比较当前工作内存中的值 和 主内存中的值，如果这个值是期望的，那么则执行操作！<strong>如果不是就一直循环</strong>，使用的是自旋锁。</p>
 <p><strong>会阻塞</strong></p>
 <p><strong>缺点：</strong></p>
@@ -2862,7 +2862,7 @@ y<span class="token operator">=</span>x<span class="token operator">*</span>x<sp
 <p>另一个线程比他快，它把A换成了3然后又改成了1</p>
 <p>第一个线程拿到A，现在A确实为1</p>
 <p>(但这个A,还是原来都A么？)</p>
-<p><img src="/2022/01/08/juc/image-20211129194315644.png" alt="image-20211129194315644"></p>
+<p><img src="/2022/01/15/juc/image-20211129194315644.png" alt="image-20211129194315644"></p>
 <p>线程1：期望值是1，要变成2；</p>
 <p>线程2：两个操作：</p>
 <ul>
@@ -2903,7 +2903,7 @@ y<span class="token operator">=</span>x<span class="token operator">*</span>x<sp
 </blockquote>
 <h2><span id="带版本号的-原子操作">带版本号的 原子操作！</span></h2><p><strong>中途遇到问题</strong></p>
 <p><strong>Integer 使用了对象缓存机制，默认范围是-128~127，推荐使用静态工厂方法valueOf获取对象实例，而不是new，因为valueOf使用缓存，而new一定会创建新的对象分配新的内存空间。</strong></p>
-<p><img src="/2022/01/08/juc/image-20211129202415209.png" alt="image-20211129202415209"></p>
+<p><img src="/2022/01/15/juc/image-20211129202415209.png" alt="image-20211129202415209"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>cas<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>bcel<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>generic<span class="token punctuation">.</span>NEW<span class="token punctuation">;</span>
@@ -2981,7 +2981,7 @@ y<span class="token operator">=</span>x<span class="token operator">*</span>x<sp
 </code></pre>
 </li>
 </ol>
-<h2><span id="可重入锁递归锁">可重入锁(递归锁)</span></h2><p><img src="/2022/01/08/juc/image-20211129204158822.png" alt="image-20211129204158822"></p>
+<h2><span id="可重入锁递归锁">可重入锁(递归锁)</span></h2><p><img src="/2022/01/15/juc/image-20211129204158822.png" alt="image-20211129204158822"></p>
 <p>两者有区别：一个是一把锁，一个是两把锁</p>
 <p><strong>synchronized</strong></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>lock<span class="token punctuation">;</span>
@@ -3177,7 +3177,7 @@ y<span class="token operator">=</span>x<span class="token operator">*</span>x<sp
 <p>T1释放锁后 T2拿到锁又释放</p>
 <p>拿到锁：把null变为线程(泛型)</p>
 <p>释放锁：把线程变为null</p>
-<h2><span id="死锁">死锁</span></h2><p><img src="/2022/01/08/juc/image-20211129214900507.png" alt="image-20211129214900507"></p>
+<h2><span id="死锁">死锁</span></h2><p><img src="/2022/01/15/juc/image-20211129214900507.png" alt="image-20211129214900507"></p>
 <pre class=" language-JAVA"><code class="language-JAVA">package com.lpc.lock;
 
 import java.util.concurrent.TimeUnit;
@@ -3223,11 +3223,11 @@ class MyThread implements Runnable{
 </code></pre>
 <h3><span id="如何解开死锁">如何解开死锁</span></h3><p><strong>1、使用jps定位进程号，jdk的bin目录下： 有一个jps</strong></p>
 <p>命令：<code>jps -l</code></p>
-<p><img src="/2022/01/08/juc/image-20211129215816633.png" alt="image-20211129215816633"></p>
+<p><img src="/2022/01/15/juc/image-20211129215816633.png" alt="image-20211129215816633"></p>
 <p><strong>2、使用<code>jstack</code> 进程进程号 找到死锁信息</strong></p>
-<p><img src="/2022/01/08/juc/image-20211129215931783.png" alt="image-20211129215931783"></p>
+<p><img src="/2022/01/15/juc/image-20211129215931783.png" alt="image-20211129215931783"></p>
 <p><strong>一般情况信息在最后：</strong></p>
-<p><img src="/2022/01/08/juc/image-20211129220035433.png" alt="image-20211129220035433"></p>
+<p><img src="/2022/01/15/juc/image-20211129220035433.png" alt="image-20211129220035433"></p>
 
                 
             </div>
@@ -3254,7 +3254,7 @@ class MyThread implements Runnable{
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dtxt.github.io/2022/01/08/juc/">https://dtxt.github.io/2022/01/08/juc/</a>
+                    <a href="https://dtxt.github.io/2022/01/15/juc/">https://dtxt.github.io/2022/01/15/juc/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -3345,7 +3345,7 @@ class MyThread implements Runnable{
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/08/vue/">
+                <a href="/2022/01/15/vue/">
                     <div class="card-image">
                         
                         <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-d03822dbb80626e39fb593fc70ec63bd_r.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647482904&t=9b0963d63052b67ca702599809304ab2" class="responsive-img" alt="Vue">
@@ -3361,7 +3361,7 @@ class MyThread implements Runnable{
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
                         </span>
                         <span class="publish-author">
                             
@@ -3393,30 +3393,30 @@ class MyThread implements Runnable{
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/08/shu-ju-jie-gou-he-suan-fa-wei-wan/">
+                <a href="/2022/01/15/redis/">
                     <div class="card-image">
                         
-                        <img src="https://img2.baidu.com/it/u=3568589326,501800820&fm=253&fmt=auto&app=138&f=JPEG?w=798&h=500" class="responsive-img" alt="数据结构和算法">
+                        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-68ba5c63fb878f074c4ac91e944b24a4_1440w.jpg%3Fsource%3D172ae18b&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647483108&t=e5fd4048400832f88cdbf59e49a489b0" class="responsive-img" alt="Redis">
                         
-                        <span class="card-title">数据结构和算法</span>
+                        <span class="card-title">Redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数据结构和算法
+                            redis笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构和算法
+                            <a href="/categories/Redis/" class="post-category">
+                                    Redis
                                 </a>
                             
                             
@@ -3426,8 +3426,8 @@ class MyThread implements Runnable{
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构和算法</span>
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
                 </div>

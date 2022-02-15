@@ -471,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-08
+                    2022-01-15
                 </div>
                 
 
@@ -513,7 +513,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1><span id="nosql概述">Nosql概述</span></h1><h2><span id="单机mysql时代">单机Mysql时代</span></h2><p>90年代,一个网站的访问量一般不会太大，单个数据库完全够用。</p>
-<p><img src="/2022/01/08/redis/image-20211201141023679.png" alt="image-20211201141023679"></p>
+<p><img src="/2022/01/15/redis/image-20211201141023679.png" alt="image-20211201141023679"></p>
 <p>随着用户增多，网站出现以下问题：</p>
 <ol>
 <li>数据量增加到一定程度，单机数据库就放不下了</li>
@@ -521,16 +521,16 @@
 <li>访问量变大后（读写混合），一台服务器承受不住。</li>
 </ol>
 <h2><span id="memcached缓存-mysql-垂直拆分读写分离">Memcached(缓存) + Mysql + 垂直拆分（读写分离）</span></h2><p>网站80%的情况都是在读，每次都要去查询数据库的话就十分的麻烦！所以说我们希望减轻数据库的压力，我们可以<strong>使用缓存</strong>来保证效率！</p>
-<p><img src="/2022/01/08/redis/image-20211201141832117.png" alt="image-20211201141832117"></p>
+<p><img src="/2022/01/15/redis/image-20211201141832117.png" alt="image-20211201141832117"></p>
 <p>优化过程经历了以下几个过程：</p>
 <ol>
 <li>优化数据库的数据结构和索引(难度大)</li>
 <li>文件缓存，通过IO流获取比每次都访问数据库效率略高，但是流量爆炸式增长时候，IO流也承受不了</li>
 <li>MemCache,当时最热门的技术，通过在数据库和数据库访问层之间加上一层缓存，第一次访问时查询数据库，将结果保存到缓存，后续的查询先检查缓存，若有直接拿去使用，效率显著提升。</li>
 </ol>
-<h2><span id="分库分表-水平拆分-mysql集群">分库分表 + 水平拆分 + Mysql集群</span></h2><p><img src="/2022/01/08/redis/image-20211201143245890.png" alt="image-20211201143245890"></p>
+<h2><span id="分库分表-水平拆分-mysql集群">分库分表 + 水平拆分 + Mysql集群</span></h2><p><img src="/2022/01/15/redis/image-20211201143245890.png" alt="image-20211201143245890"></p>
 <h2><span id="如今最近的年代">如今最近的年代</span></h2><p>如今信息量井喷式增长，各种各样的数据出现（用户定位数据，图片数据等），大数据的背景下关系型数据库（RDBMS）无法满足大量数据要求。Nosql数据库就能轻松解决这些问题。目前一个基本的互联网项目：</p>
-<p><img src="/2022/01/08/redis/image-20211201144846693.png" alt="image-20211201144846693"></p>
+<p><img src="/2022/01/15/redis/image-20211201144846693.png" alt="image-20211201144846693"></p>
 <h2><span id="为什么要用nosql">为什么要用NoSQL ？</span></h2><p>用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长！这时候我们就需要使用NoSQL数据库的，Nosql可以很好的处理以上的情况！</p>
 <h3><span id="什么是nosql">什么是Nosql</span></h3><p>NoSQL = Not Only SQL（不仅仅是SQL）</p>
 <p>Not Only Structured Query Language</p>
@@ -597,7 +597,7 @@
 <li>不是存图形，放的是关系，比如：朋友圈社交网络，广告推荐</li>
 <li>Neo4j，InfoGrid</li>
 </ul>
-<p><img src="/2022/01/08/redis/image-20211201155955038.png" alt="image-20211201155955038"></p>
+<p><img src="/2022/01/15/redis/image-20211201155955038.png" alt="image-20211201155955038"></p>
 <h1><span id="redis入门">Redis入门</span></h1><h2><span id="redis是什么">Redis是什么？</span></h2><p>Redis（Remote Dictionary Server )，即远程字典服务。</p>
 <p>是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。</p>
 <p>与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</p>
@@ -620,14 +620,14 @@
 <p>windows:<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S54y1R7SB?p=8&amp;spm_id_from=pageDriver">https://www.bilibili.com/video/BV1S54y1R7SB?p=8&amp;spm_id_from=pageDriver</a></p>
 <p>linux:<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S54y1R7SB?p=9&amp;spm_id_from=pageDriver">https://www.bilibili.com/video/BV1S54y1R7SB?p=9&amp;spm_id_from=pageDriver</a></p>
 <h2><span id="性能测试">性能测试</span></h2><p><strong>redis-benchmark：</strong>Redis官方提供的性能测试工具，参数选项如下：</p>
-<p><img src="/2022/01/08/redis/image-20211201170322732.png" alt="image-20211201170322732"></p>
+<p><img src="/2022/01/15/redis/image-20211201170322732.png" alt="image-20211201170322732"></p>
 <p>简单测试：</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 测试：100个并发连接 100000请求</span>
 redis-benchmark -h localhost -p 6379 -c 100 -n 100000
 </code></pre>
-<p><img src="/2022/01/08/redis/image-20211201171126927.png" alt="image-20211201171126927"></p>
+<p><img src="/2022/01/15/redis/image-20211201171126927.png" alt="image-20211201171126927"></p>
 <h2><span id="基础知识">基础知识*</span></h2><p>redis默认有16个数据库</p>
-<p><img src="/2022/01/08/redis/image-20211201171529597.png" alt="image-20211201171529597"></p>
+<p><img src="/2022/01/15/redis/image-20211201171529597.png" alt="image-20211201171529597"></p>
 <p>默认使用的第0个;</p>
 <p>16个数据库为：DB 0~DB 15 默认使用DB 0 ，可以使用<code>select n</code>切换到DB n，<code>dbsize</code>可以查看当前数据库的大小，与key数量相关。</p>
 <pre class=" language-bash"><code class="language-bash">127.0.0.1:6379<span class="token operator">></span> <span class="token keyword">select</span> 3 <span class="token comment" spellcheck="true">#切换数据库</span>
@@ -851,7 +851,7 @@ OK
 <h2><span id="list列表">List(列表)</span></h2><p>Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
 <p>一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过40亿个元素)。</p>
 <p>首先我们列表，可以经过规则定义将其变为队列、栈、双端队列等。</p>
-<p><img src="/2022/01/08/redis/image-20211201195029982.png" alt="image-20211201195029982"></p>
+<p><img src="/2022/01/15/redis/image-20211201195029982.png" alt="image-20211201195029982"></p>
 <p>正如图Redis中List是可以进行双端操作的，所以命令也就分为了LXXX和RLLL两类，有时候L也表示List例如LLEN</p>
 <ul>
 <li><code>LPUSH/RPUSH key value1[value2..]</code>从左边/右边向列表中PUSH值(一个或者多个)。</li>
@@ -888,7 +888,7 @@ OK
 3<span class="token punctuation">)</span> <span class="token string">"one"</span>
 4<span class="token punctuation">)</span> <span class="token string">"right"</span>
 </code></pre>
-<p><img src="/2022/01/08/redis/image-20211201195952537.png" alt="image-20211201195952537"></p>
+<p><img src="/2022/01/15/redis/image-20211201195952537.png" alt="image-20211201195952537"></p>
 <pre class=" language-bash"><code class="language-bash">127.0.0.1:6379<span class="token operator">></span> lrange list 0 -1
 1<span class="token punctuation">)</span> <span class="token string">"three"</span>
 2<span class="token punctuation">)</span> <span class="token string">"two"</span>
@@ -1250,7 +1250,7 @@ OK
 <h1><span id="三种特殊数据类型">三种特殊数据类型</span></h1><h2><span id="geospatial地理位置">Geospatial(地理位置)</span></h2><p>朋友的定位，附近的人，打车计算距离？</p>
 <p>Redis的Geo在3.2版本就推出了！这个功能可以推算地理位置的信息，两地之间的距离，方圆几里的人！</p>
 <p>经纬度查询：<a target="_blank" rel="noopener" href="http://www.jsons.cn/lngcode/">http://www.jsons.cn/lngcode/</a></p>
-<p><img src="/2022/01/08/redis/image-20211202163115193.png" alt="image-20211202163115193"></p>
+<p><img src="/2022/01/15/redis/image-20211202163115193.png" alt="image-20211202163115193"></p>
 <h3><span id="有效经纬度">有效经纬度</span></h3><ul>
 <li>有效的经度从-180度到180度。</li>
 <li>有效的纬度从-85.05112878度到85.05112878度。</li>
@@ -1632,7 +1632,7 @@ OK
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><img src="/2022/01/08/redis/image-20211202230132106.png" alt="image-20211202230132106"></p>
+<p><img src="/2022/01/15/redis/image-20211202230132106.png" alt="image-20211202230132106"></p>
 <h2><span id="常用的api">常用的API</span></h2><p>string、list、set、hash、zset</p>
 <p>所有的api命令，就是我们对应的上面学习的指令，一个都没有变化！</p>
 <blockquote>
@@ -1905,7 +1905,7 @@ OK
 <h1><span id="springboot整合">SpringBoot整合</span></h1><p>SpringBoot 操作数据：spring-data jpa jdbc mongodb redis！</p>
 <p>SpringData 也是和 SpringBoot 齐名的项目！</p>
 <p>说明： 在 SpringBoot2.x 之后，原来使用的jedis 被替换为了 lettuce?</p>
-<p><img src="/2022/01/08/redis/image-20211203095113115.png" alt="image-20211203095113115"></p>
+<p><img src="/2022/01/15/redis/image-20211203095113115.png" alt="image-20211203095113115"></p>
 <p>jedis : 采用的直连，多个线程操作的话，是不安全的，如果想要避免不安全的，使用 jedis pool 连接池！ 更像 BIO 模式</p>
 <p>lettuce : 采用netty，实例可以再多个线程中进行共享，不存在线程不安全的情况！可以减少线程数据了，更像 NIO 模式</p>
 <p>源码分析：</p>
@@ -1971,12 +1971,12 @@ OK
 <span class="token punctuation">}</span>
 </code></pre>
 <p>4.测试结果</p>
-<p><img src="/2022/01/08/redis/image-20211203103438995.png" alt="image-20211203103438995"></p>
+<p><img src="/2022/01/15/redis/image-20211203103438995.png" alt="image-20211203103438995"></p>
 <p>此时我们回到Redis查看数据时候，惊奇发现全是乱码，可是程序中可以正常输出。这时候就关系到存储对象的序列化问题，在网络中传输的对象也是一样需要序列化，否者就全是乱码。</p>
 <p>RedisTemplate内部的序列化配置是这样的</p>
-<p><img src="/2022/01/08/redis/image-20211203103744213.png" alt="image-20211203103744213"></p>
+<p><img src="/2022/01/15/redis/image-20211203103744213.png" alt="image-20211203103744213"></p>
 <p>默认的序列化器是采用JDK序列化器(我们能回使用json转义)</p>
-<p><img src="/2022/01/08/redis/image-20211203103941685.png" alt="image-20211203103941685"></p>
+<p><img src="/2022/01/15/redis/image-20211203103941685.png" alt="image-20211203103941685"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>pojo<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> lombok<span class="token punctuation">.</span>AllArgsConstructor<span class="token punctuation">;</span>
@@ -2010,7 +2010,7 @@ OK
     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>redisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 </code></pre>
-<p><img src="/2022/01/08/redis/image-20211203105343593.png" alt="image-20211203105343593"></p>
+<p><img src="/2022/01/15/redis/image-20211203105343593.png" alt="image-20211203105343593"></p>
 <p>数据必须序列化才能传输，我们可以通过jackson序列化也可以实现Serializable接口序列化</p>
 <p>后续我们定制RedisTemplate就可以对其进行修改。</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lpc<span class="token punctuation">.</span>config<span class="token punctuation">;</span>
@@ -2074,56 +2074,56 @@ OK
     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>redisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 </code></pre>
-<p><img src="/2022/01/08/redis/image-20211203110353250.png" alt="image-20211203110353250"></p>
+<p><img src="/2022/01/15/redis/image-20211203110353250.png" alt="image-20211203110353250"></p>
 <p>所有的redis操作，其实对于java开发人员来说，十分的简单，更重要是要去理解redis的思想和每一种数据结构的用处和作用场景！</p>
 <h1><span id="redisconf">Redis.conf</span></h1><blockquote>
 <h2><span id="单位">单位</span></h2></blockquote>
 <p>容量单位不区分大小写，G和GB有区别</p>
-<p><img src="/2022/01/08/redis/image-20211203111447734.png" alt="image-20211203111447734"></p>
+<p><img src="/2022/01/15/redis/image-20211203111447734.png" alt="image-20211203111447734"></p>
 <blockquote>
 <h2><span id="包含">包含</span></h2></blockquote>
 <p>可以使用 include 组合多个配置问题</p>
-<p><img src="/2022/01/08/redis/image-20211203112129510.png" alt="image-20211203112129510"></p>
+<p><img src="/2022/01/15/redis/image-20211203112129510.png" alt="image-20211203112129510"></p>
 <blockquote>
 <h2><span id="网络配置">网络配置</span></h2></blockquote>
-<p><img src="/2022/01/08/redis/image-20211203112450805.png" alt="image-20211203112450805"></p>
+<p><img src="/2022/01/15/redis/image-20211203112450805.png" alt="image-20211203112450805"></p>
 <blockquote>
 <h2><span id="通用">通用</span></h2></blockquote>
 <pre><code>daemonize yes//默认是no 启动守护进程启动
 pidfile /var/run/redis_6379.pid #如果以后台方式启动，我们就需要指定一个pid文件
 </code></pre>
 <p>日志</p>
-<p><img src="/2022/01/08/redis/image-20211203112844433.png" alt="image-20211203112844433"></p>
+<p><img src="/2022/01/15/redis/image-20211203112844433.png" alt="image-20211203112844433"></p>
 <p>notice生产环境</p>
 <p>logfile日志文件位置</p>
 <p>默认16个数据库</p>
-<p><img src="/2022/01/08/redis/image-20211203112953880.png" alt="image-20211203112953880"></p>
+<p><img src="/2022/01/15/redis/image-20211203112953880.png" alt="image-20211203112953880"></p>
 <p>是否显示logo</p>
-<p><img src="/2022/01/08/redis/image-20211203113020843.png" alt="image-20211203113020843"></p>
+<p><img src="/2022/01/15/redis/image-20211203113020843.png" alt="image-20211203113020843"></p>
 <blockquote>
 <h2><span id="快照">快照</span></h2></blockquote>
 <p>在规定的时间内，执行了多少操作，则会持久化到.rdb.aof</p>
 <p>redis是内存数据库，断电即失</p>
-<p><img src="/2022/01/08/redis/image-20211203113150974.png" alt="image-20211203113150974"></p>
+<p><img src="/2022/01/15/redis/image-20211203113150974.png" alt="image-20211203113150974"></p>
 <pre><code>如果900秒内，如果至少有1个key进行了修改，我们就进行持久化
 如果300秒内，如果至少有10个key进行了修改，我们就进行持久化
 如果60秒内，如果至少有10000个key进行了修改，我们就进行持久化
 </code></pre>
-<p><img src="/2022/01/08/redis/image-20211203113401853.png" alt="image-20211203113401853"></p>
+<p><img src="/2022/01/15/redis/image-20211203113401853.png" alt="image-20211203113401853"></p>
 <p>如果持久化出错，是否还继续工作</p>
-<p><img src="/2022/01/08/redis/image-20211203113431935.png" alt="image-20211203113431935"></p>
+<p><img src="/2022/01/15/redis/image-20211203113431935.png" alt="image-20211203113431935"></p>
 <p>是否压缩rdb文件</p>
-<p><img src="/2022/01/08/redis/image-20211203113517559.png" alt="image-20211203113517559"></p>
+<p><img src="/2022/01/15/redis/image-20211203113517559.png" alt="image-20211203113517559"></p>
 <p>保存rdb文件的时候进行错误校验</p>
-<p><img src="/2022/01/08/redis/image-20211203113545697.png" alt="image-20211203113545697"></p>
+<p><img src="/2022/01/15/redis/image-20211203113545697.png" alt="image-20211203113545697"></p>
 <p>rdb保存的目录</p>
 <blockquote>
 <h2><span id="replication-主从复制讲">REPLICATION 主从复制讲</span></h2></blockquote>
 <blockquote>
 <h2><span id="security">SECURITY</span></h2></blockquote>
-<p><img src="/2022/01/08/redis/image-20211203113809537.png" alt="image-20211203113809537"></p>
+<p><img src="/2022/01/15/redis/image-20211203113809537.png" alt="image-20211203113809537"></p>
 <p>设置密码(默没有密码)</p>
-<p><img src="/2022/01/08/redis/image-20211203113852352.png" alt="image-20211203113852352"></p>
+<p><img src="/2022/01/15/redis/image-20211203113852352.png" alt="image-20211203113852352"></p>
 <p>设置密码</p>
 <pre class=" language-bash"><code class="language-bash">127.0.0.1:6379<span class="token operator">></span> config get requirepass<span class="token comment" spellcheck="true">#获取redis的密码</span>
 1<span class="token punctuation">)</span> <span class="token string">"requirepass"</span>
@@ -2142,9 +2142,9 @@ OK
 </code></pre>
 <blockquote>
 <h2><span id="限制clients">限制CLIENTS</span></h2></blockquote>
-<p><img src="/2022/01/08/redis/image-20211203114233959.png" alt="image-20211203114233959"></p>
-<p><img src="/2022/01/08/redis/image-20211203114307483.png" alt="image-20211203114307483"></p>
-<p><img src="/2022/01/08/redis/image-20211203114406452.png" alt="image-20211203114406452"></p>
+<p><img src="/2022/01/15/redis/image-20211203114233959.png" alt="image-20211203114233959"></p>
+<p><img src="/2022/01/15/redis/image-20211203114307483.png" alt="image-20211203114307483"></p>
+<p><img src="/2022/01/15/redis/image-20211203114406452.png" alt="image-20211203114406452"></p>
 <p>maxmemory-policy noviction (内存到达上限后的处理策略)　　</p>
 <pre><code>1、volatile-lru：只对设置了过期时间的key进行LRU（默认值）
 
@@ -2160,10 +2160,10 @@ OK
 </code></pre>
 <blockquote>
 <h2><span id="append-only-mode">APPEND ONLY MODE</span></h2></blockquote>
-<p><img src="/2022/01/08/redis/image-20211203114710148.png" alt="image-20211203114710148"></p>
+<p><img src="/2022/01/15/redis/image-20211203114710148.png" alt="image-20211203114710148"></p>
 <p>默认rdb够用</p>
-<p><img src="/2022/01/08/redis/image-20211203114745040.png" alt="image-20211203114745040"></p>
-<p><img src="/2022/01/08/redis/image-20211203114902012.png" alt="image-20211203114902012"></p>
+<p><img src="/2022/01/15/redis/image-20211203114745040.png" alt="image-20211203114745040"></p>
+<p><img src="/2022/01/15/redis/image-20211203114902012.png" alt="image-20211203114902012"></p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># appendfsync always  #每次修改都会sync 消耗性能</span>
 appendfsync everysec  <span class="token comment" spellcheck="true">#每秒执行一次sync同步 可能会丢失这一秒的数据</span>
 <span class="token comment" spellcheck="true"># appendfsync no      #不同步</span>
@@ -2181,7 +2181,7 @@ appendfsync everysec  <span class="token comment" spellcheck="true">#每秒执�
 <li>当子进程完成对新 RDB 文件的写入时，Redis 用新 RDB 文件替换原来的 RDB 文件，并删除旧的 RDB 文件。</li>
 </ol>
 <p>这种工作方式使得 Redis 可以从写时复制（copy-on-write）机制中获益(因为是使用子进程进行写操作，而父进程依然可以接收来自客户端的请求。)</p>
-<p><img src="/2022/01/08/redis/image-20211203123322632.png" alt="image-20211203123322632"></p>
+<p><img src="/2022/01/15/redis/image-20211203123322632.png" alt="image-20211203123322632"></p>
 <h2><span id="触发机制">触发机制</span></h2><ol>
 <li>save的规则满足的情况下，会自动触发rdb原则</li>
 <li>执行flushall命令，也会触发我们的rdb原则</li>
@@ -2192,14 +2192,14 @@ appendfsync everysec  <span class="token comment" spellcheck="true">#每秒执�
 <p>由于 save 命令是同步命令，会占用Redis的主进程。若Redis数据非常多时，save命令执行速度会非常慢，阻塞所有客户端的请求。</p>
 </blockquote>
 <p>示意图</p>
-<p><img src="/2022/01/08/redis/image-20211203123416789.png" alt="image-20211203123416789"></p>
+<p><img src="/2022/01/15/redis/image-20211203123416789.png" alt="image-20211203123416789"></p>
 <h3><span id="flushall命令">flushall命令</span></h3><p>flushall 命令也会触发持久化 ；</p>
 <p>触发持久化规则<br>满足配置条件中的触发条件 ；</p>
 <blockquote>
 <p>可以通过配置文件对 Redis 进行设置， 让它在“ N 秒内数据集至少有 M 个改动”这一条件被满足时， 自动进行数据集保存操作。</p>
 </blockquote>
 <h3><span id="bgsave">bgsave</span></h3><p>bgsave 是异步进行，进行持久化的时候，redis 还可以将继续响应客户端请求 ；</p>
-<p><img src="/2022/01/08/redis/image-20211203123937796.png" alt="image-20211203123937796"></p>
+<p><img src="/2022/01/15/redis/image-20211203123937796.png" alt="image-20211203123937796"></p>
 <p>bgsave和save对比</p>
 <table>
 <thead>
@@ -2259,7 +2259,7 @@ appendfsync everysec  <span class="token comment" spellcheck="true">#每秒执�
 </ol>
 <h1><span id="redis持久化aof">Redis持久化——AOF</span></h1><p>Append Only File</p>
 <p>将我们所有的命令都记录下来，history，恢复的时候就把这个文件全部再执行一遍</p>
-<p><img src="/2022/01/08/redis/image-20211203130013039.png" alt="image-20211203130013039"></p>
+<p><img src="/2022/01/15/redis/image-20211203130013039.png" alt="image-20211203130013039"></p>
 <p><strong>以日志的形式来记录每个写的操作</strong>，将Redis执行过的所有指令记录下来（读操作不记录），只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作。</p>
 <p>==AOF保存的是appendonly.aof文件==</p>
 <h2><span id="什么是aof">什么是AOF</span></h2><p> 快照功能（RDB）并不是非常耐久（durable）： 如果 Redis 因为某些原因而造成故障停机， 那么服务器将丢失最近写入、以及未保存到快照中的那些数据。 从 1.1 版本开始， Redis 增加了一种完全耐久的持久化方式： AOF 持久化。</p>
@@ -2309,16 +2309,16 @@ appendfsync no <span class="token comment" spellcheck="true"># 不执行 sync ,�
 <h1><span id="redis发布订阅">Redis发布订阅</span></h1><p>Redis 发布订阅(pub/sub)是一种==消息通信模式==：发送者(pub)发送消息，订阅者(sub)接收消息。微信、 微博、关注系统！</p>
 <p>Redis 客户端可以订阅任意数量的频道。 </p>
 <p>订阅/发布消息图： 第一个：消息发送者， 第二个：频道、 第三个：消息订阅者！</p>
-<p><img src="/2022/01/08/redis/image-20211203152500160.png" alt="image-20211203152500160"></p>
+<p><img src="/2022/01/15/redis/image-20211203152500160.png" alt="image-20211203152500160"></p>
 <p>下图展示了频道 channel1 ， 以及订阅这个频道的三个客户端 —— client2 、 client5 和 client1 之间的关系：</p>
-<p><img src="/2022/01/08/redis/image-20211203152602865.png" alt="image-20211203152602865"></p>
+<p><img src="/2022/01/15/redis/image-20211203152602865.png" alt="image-20211203152602865"></p>
 <p>当有新消息通过 PUBLISH 命令发送给频道 channel1 时， 这个消息就会被发送给订阅它的三个客户端：</p>
-<p><img src="/2022/01/08/redis/image-20211203152935113.png" alt="image-20211203152935113"></p>
+<p><img src="/2022/01/15/redis/image-20211203152935113.png" alt="image-20211203152935113"></p>
 <blockquote>
 <p>命令</p>
 </blockquote>
 <p>这些命令被广泛用于构建即时通讯的通信应用，比如聊天室和实时广播、实时提醒等。</p>
-<p><img src="/2022/01/08/redis/image-20211203153059435.png" alt="image-20211203153059435"></p>
+<p><img src="/2022/01/15/redis/image-20211203153059435.png" alt="image-20211203153059435"></p>
 <blockquote>
 <p>测试</p>
 </blockquote>
@@ -2343,7 +2343,7 @@ Reading messages<span class="token punctuation">..</span>. <span class="token pu
 <h2><span id="原理">原理</span></h2><p>Redis是使用C实现的，通过分析 Redis 源码里的 pubsub.c 文件，了解发布和订阅机制的底层实现，籍此加深对 Redis 的理解。</p>
 <p>Redis 通过 PUBLISH 、SUBSCRIBE 和 PSUBSCRIBE 等命令实现发布和订阅功能。</p>
 <p>每个 Redis 服务器进程都维持着一个表示服务器状态的 redis.h/redisServer 结构， 结构的 pubsub_channels 属性是一个字典， 这个字典就用于保存订阅频道的信息，其中，字典的键为正在被订阅的频道， 而字典的值则是一个链表， 链表中保存了所有订阅这个频道的客户端。</p>
-<p><img src="/2022/01/08/redis/image-20211203154507647.png" alt="image-20211203154507647"></p>
+<p><img src="/2022/01/15/redis/image-20211203154507647.png" alt="image-20211203154507647"></p>
 <p>客户端订阅，就被链接到对应频道的链表的尾部，退订则就是将客户端节点从链表中移除。</p>
 <h2><span id="缺点">缺点</span></h2><ol>
 <li>如果一个客户端订阅了频道，但自己读取消息的速度却不够快的话，那么不断积压的消息会使redis输出缓冲区的体积变得越来越大，这可能使得redis本身的速度变慢，甚至直接崩溃。</li>
@@ -2367,7 +2367,7 @@ Reading messages<span class="token punctuation">..</span>. <span class="token pu
 <p>2、从容量上，单个Redis服务器内存容量有限，就算一台Redis服务器内存容量为256G，也不能将所有内存用作Redis存储内存，一般来说，单台Redis最大使用内存不应该超过20G。</p>
 <p>电商网站上的商品，一般都是一次上传，无数次浏览的，说专业点也就是”多读少写”。</p>
 <p>对于这种场景，我们可以使如下这种架构：</p>
-<p><img src="/2022/01/08/redis/image-20211203155140014.png" alt="image-20211203155140014"></p>
+<p><img src="/2022/01/15/redis/image-20211203155140014.png" alt="image-20211203155140014"></p>
 <p>主从复制，读写分离！ 80% 的情况下都是在进行读操作！减缓服务器的压力！</p>
 <p>架构中经常使用！ 一主二从！</p>
 <p>只要在公司中，主从复制就是必须要使用的，因为在真实的项目中不可能单机使用Redis！</p>
@@ -2399,11 +2399,11 @@ repl_backlog_histlen:0
 <li>dump.rdb名字</li>
 </ol>
 <p>启动单机多服务集群：</p>
-<p><img src="/2022/01/08/redis/image-20211203181502026.png" alt="image-20211203181502026"></p>
+<p><img src="/2022/01/15/redis/image-20211203181502026.png" alt="image-20211203181502026"></p>
 <h2><span id="一主二从配置">一主二从配置</span></h2><p>==默认情况下，每台Redis服务器都是主节点==；我们一般情况下只用配置从机就好了！</p>
 <p>认老大！一主（79）二从（80，81）</p>
 <p>使用SLAVEOF host port就可以为从机配置主机了。</p>
-<p><img src="/2022/01/08/redis/image-20211203182234933.png" alt="image-20211203182234933"></p>
+<p><img src="/2022/01/15/redis/image-20211203182234933.png" alt="image-20211203182234933"></p>
 <p><strong>说明</strong></p>
 <ul>
 <li><code>SLAVEOF host 6379</code> 找谁当自己的老大！</li>
@@ -2411,7 +2411,7 @@ repl_backlog_histlen:0
 <li><code>master_host:127.0.0.1</code> # 可以的看到主机的信息</li>
 </ul>
 <p>然后主机上也能看到从机的状态：</p>
-<p><img src="/2022/01/08/redis/image-20211203182417295.png" alt="image-20211203182417295"></p>
+<p><img src="/2022/01/15/redis/image-20211203182417295.png" alt="image-20211203182417295"></p>
 <p><strong>说明</strong></p>
 <ul>
 <li><code>connected_slaves:1</code> # 多了从机的配置</li>
@@ -2463,14 +2463,14 @@ OK
 <h2><span id="概述">概述</span></h2><p>主从切换技术的方法是：当主服务器宕机后，需要手动把一台从服务器切换为主服务器，这就需要人工干预，费事费力，还会造成一段时间内服务不可用。这不是一种推荐的方式，更多时候，我们优先考虑哨兵模式。</p>
 <p>Redis从2.8开始正式提供了Sentinel（哨兵） 架构来解决这个问题。<strong>能够后台监控主机是否故障，如果故障了根据投票数自动将从库转换为主库。</strong></p>
 <p>哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行。其原理是哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例。</p>
-<p><img src="/2022/01/08/redis/image-20211203191620201.png" alt="image-20211203191620201"></p>
+<p><img src="/2022/01/15/redis/image-20211203191620201.png" alt="image-20211203191620201"></p>
 <p>哨兵的作用：</p>
 <ul>
 <li>通过发送命令，让Redis服务器返回监控其运行状态，包括主服务器和从服务器。</li>
 <li>当哨兵监测到master宕机，会自动将slave切换成master，然后通过发布订阅模式通知其他的从服务器，修改配置文件，让它们切换主机。</li>
 </ul>
 <p>然而一个哨兵进程对Redis服务器进行监控，可能会出现问题，为此，我们可以使用多个哨兵进行监控。各个哨兵之间还会进行监控，这样就形成了<strong>多哨兵模式</strong>。</p>
-<p><img src="/2022/01/08/redis/image-20211203192053063.png" alt="image-20211203192053063"></p>
+<p><img src="/2022/01/15/redis/image-20211203192053063.png" alt="image-20211203192053063"></p>
 <p>假设主服务器宕机，哨兵1先检测到这个结果，系统并不会马上进行failover过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象成为主观下线。当后面的哨兵也检测到主服务器不可用，并且数量达到一定值时，那么哨兵之间就会进行一次投票，投票的结果由一个哨兵发起，进行failover[故障转移]操作。切换成功后，就会通过发布订阅模式，让各个哨兵把自己监控的从服务器实现切换主机，这个过程称为<strong>客观下线</strong>。</p>
 <h2><span id="测试">测试</span></h2><p>目前状态是：一主二从</p>
 <p>1、配置哨兵配置文件 sentinel.conf</p>
@@ -2481,9 +2481,9 @@ sentinel monitor myredis 127.0.0.1 6379 1
 <p>2、启动哨兵！</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@DTXG bin<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># redis-sentinel kconfig/sentinel.conf </span>
 </code></pre>
-<p><img src="/2022/01/08/redis/image-20211203193232196.png" alt="image-20211203193232196"></p>
+<p><img src="/2022/01/15/redis/image-20211203193232196.png" alt="image-20211203193232196"></p>
 <p>3、此时哨兵监视着我们的主机6379，当我们断开主机后：</p>
-<p><img src="/2022/01/08/redis/image-20211203193827419.png" alt="image-20211203193827419"></p>
+<p><img src="/2022/01/15/redis/image-20211203193827419.png" alt="image-20211203193827419"></p>
 <p>如果此时主机回来了，那他也只能归并到新的主机下，当作从机，这就是哨兵模式的规则！</p>
 <h2><span id="哨兵模式优缺点">哨兵模式优缺点</span></h2><p>优点：</p>
 <ol>
@@ -2569,13 +2569,13 @@ sentinel notification-script mymaster /var/redis/notify.sh
 sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
 </code></pre>
 <h1><span id="缓存穿透与雪崩">缓存穿透与雪崩</span></h1><h2><span id="缓存穿透即查询不到">缓存穿透（即查询不到）</span></h2><h3><span id="概念">概念</span></h3><p>在默认情况下，用户请求数据时，会先在缓存(Redis)中查找，若没找到即缓存未命中，再在数据库中进行查找，数量少可能问题不大，可是一旦大量的请求数据（例如秒杀场景）缓存都没有命中的话，就会全部转移到数据库上，造成数据库极大的压力，就有可能导致数据库崩溃。网络安全中也有人恶意使用这种手段进行攻击被称为洪水攻击。</p>
-<p><img src="/2022/01/08/redis/image-20211203200028925.png" alt="image-20211203200028925"></p>
+<p><img src="/2022/01/15/redis/image-20211203200028925.png" alt="image-20211203200028925"></p>
 <h3><span id="解决方案">解决方案</span></h3><p><strong>布隆过滤器</strong></p>
 <p>对所有可能查询的参数以Hash的形式存储，以便快速确定是否存在这个值，在控制层先进行拦截校验，校验不通过直接打回，减轻了存储系统的压力。</p>
-<p><img src="/2022/01/08/redis/image-20211203200333546.png" alt="image-20211203200333546"></p>
+<p><img src="/2022/01/15/redis/image-20211203200333546.png" alt="image-20211203200333546"></p>
 <p><strong>缓存空对象</strong></p>
 <p>一次请求若在缓存和数据库中都没找到，就在缓存中方一个空对象用于处理后续这个请求。</p>
-<p><img src="/2022/01/08/redis/image-20211203200527253.png" alt="image-20211203200527253"></p>
+<p><img src="/2022/01/15/redis/image-20211203200527253.png" alt="image-20211203200527253"></p>
 <p>这样做有一个缺陷：存储空对象也需要空间，大量的空对象会耗费一定的空间，存储效率并不高。解决这个缺陷的方式就是设置较短过期时间</p>
 <p>即使对空值设置了过期时间，还是会存在缓存层和存储层的数据会有一段时间窗口的不一致，这对于需要保持一致性的业务会有影响。</p>
 <h2><span id="缓存击穿即量太大缓存过期">缓存击穿（即量太大，缓存过期）</span></h2><h3><span id="概念">概念</span></h3><p>相较于缓存穿透，缓存击穿的目的性更强，一个存在的key，在缓存过期的一刻，同时有大量的请求，这些请求都会击穿到DB，造成瞬时DB请求量大、压力骤增。这就是缓存被击穿，只是针对其中某个key的缓存不可用而导致击穿，但是其他的key依然可以使用缓存响应。</p>
@@ -2587,7 +2587,7 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
 <h2><span id="缓存雪崩">缓存雪崩</span></h2><h3><span id="概念">概念</span></h3><p>大量的key设置了相同的过期时间，导致在缓存在同一时刻全部失效，造成瞬时DB请求量大、压力骤增，引起雪崩。</p>
 <p>缓存雪崩，是指在某一个时间段，缓存集中过期失效。Redis 宕机！</p>
 <p>产生雪崩的原因之一，比如在写本文的时候，马上就要到双十二零点，很快就会迎来一波抢购，这波商品时间比较集中的放入了缓存，假设缓存一个小时。那么到了凌晨一点钟的时候，这批商品的缓存就都过期了。而对这批商品的访问查询，都落到了数据库上，对于数据库而言，就会产生周期性的压力波峰。于是所有的请求都会达到存储层，存储层的调用量会暴增，造成存储层也会挂掉的情况。</p>
-<p><img src="/2022/01/08/redis/image-20211203201418097.png" alt="image-20211203201418097"></p>
+<p><img src="/2022/01/15/redis/image-20211203201418097.png" alt="image-20211203201418097"></p>
 <p>其实集中过期，倒不是非常致命，比较致命的缓存雪崩，是缓存服务器某个节点宕机或断网。因为自然形成的缓存雪崩，一定是在某个时间段集中创建缓存，这个时候，数据库也是可以顶住压力的。无非就是对数据库产生周期性的压力而已。而缓存服务节点的宕机，对数据库服务器造成的压力是不可预知的，很有可能瞬间就把数据库压垮。</p>
 <h3><span id="解决方案">解决方案</span></h3><blockquote>
 <p>redis高可用</p>
@@ -2627,7 +2627,7 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dtxt.github.io/2022/01/08/redis/">https://dtxt.github.io/2022/01/08/redis/</a>
+                    <a href="https://dtxt.github.io/2022/01/15/redis/">https://dtxt.github.io/2022/01/15/redis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -2718,30 +2718,30 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/08/shu-ju-jie-gou-he-suan-fa-wei-wan/">
+                <a href="/2022/01/15/juc/">
                     <div class="card-image">
                         
-                        <img src="https://img2.baidu.com/it/u=3568589326,501800820&fm=253&fmt=auto&app=138&f=JPEG?w=798&h=500" class="responsive-img" alt="数据结构和算法">
+                        <img src="https://img0.baidu.com/it/u=1774696333,2705660014&fm=253&fmt=auto&app=138&f=JPEG?w=426&h=240" class="responsive-img" alt="JUC">
                         
-                        <span class="card-title">数据结构和算法</span>
+                        <span class="card-title">JUC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数据结构和算法
+                            juc入门
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构和算法
+                            <a href="/categories/JUC/" class="post-category">
+                                    JUC
                                 </a>
                             
                             
@@ -2751,8 +2751,8 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构和算法</span>
+                    <a href="/tags/JUC/">
+                        <span class="chip bg-color">JUC</span>
                     </a>
                     
                 </div>
@@ -2763,45 +2763,44 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/08/redis/">
+                <a href="/2022/01/10/gulimall-bi-ji/">
                     <div class="card-image">
                         
-                        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-68ba5c63fb878f074c4ac91e944b24a4_1440w.jpg%3Fsource%3D172ae18b&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647483108&t=e5fd4048400832f88cdbf59e49a489b0" class="responsive-img" alt="Redis">
+                        <img src="https://img2.baidu.com/it/u=2909068583,1783215639&fm=253&fmt=auto&app=138&f=PNG?w=952&h=500" class="responsive-img" alt="项目笔记">
                         
-                        <span class="card-title">Redis</span>
+                        <span class="card-title">项目笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            redis笔记
+                            谷粒商城
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Redis/">
-                        <span class="chip bg-color">Redis</span>
+                    <a href="/tags/%E5%95%86%E5%9F%8E/">
+                        <span class="chip bg-color">商城</span>
                     </a>
                     
                 </div>

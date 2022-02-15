@@ -471,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-08
+                    2022-01-15
                 </div>
                 
 
@@ -542,7 +542,7 @@
 <h3><span id="仓库地址">仓库地址</span></h3><blockquote>
 <p><a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a></p>
 </blockquote>
-<h2><span id="docker能做什么">Docker能做什么？</span></h2><h3><span id="传统虚拟机与docker对比">传统虚拟机与Docker对比</span></h3><p><img src="/2022/01/08/docker-wei-wan/image-20211203221343920.png" alt="image-20211203221343920"></p>
+<h2><span id="docker能做什么">Docker能做什么？</span></h2><h3><span id="传统虚拟机与docker对比">传统虚拟机与Docker对比</span></h3><p><img src="/2022/01/15/docker-wei-wan/image-20211203221343920.png" alt="image-20211203221343920"></p>
 <h3><span id="docker的优点">Docker的优点</span></h3><ul>
 <li>==不模拟完整的操作系统==，系统内核（kernel）非常小，更少的抽象层（GuestOS：如Centos）</li>
 <li>容器内的应用直接运行在宿主机的内核，容器本身没有自己的内核，也没有虚拟硬件。</li>
@@ -554,7 +554,7 @@
 <li>更简单的系统运维<br>开发和测试的环境高度一致</li>
 <li>更高效的计算资源利用<br>内核级别的虚拟化，可以在一个物理机上运行很多的容器实例，服务器性能可以被压榨到极致。</li>
 </ul>
-<h1><span id="docker安装">Docker安装</span></h1><h2><span id="docker的基本组成">Docker的基本组成</span></h2><p><img src="/2022/01/08/docker-wei-wan/image-20211203221425267.png" alt="image-20211203221425267"></p>
+<h1><span id="docker安装">Docker安装</span></h1><h2><span id="docker的基本组成">Docker的基本组成</span></h2><p><img src="/2022/01/15/docker-wei-wan/image-20211203221425267.png" alt="image-20211203221425267"></p>
 <ul>
 <li>镜像（image）：镜像是一种轻量级、可执行的独立软件包，用来打包软件运行环境和基于运行环境开发的软件。它包含运行某个软件所需的所有内容，包括代码、运行时、库、环境变量和配置文件。相当于一个模板，通过这个模板来创建容器服务，可以通过一个镜像创建多个容器。</li>
 <li>容器（container）：独立运行一个或一组应用/基本命令有：启动，停止，删除等/可理解为一个简单的linux系统。</li>
@@ -612,11 +612,11 @@ REDHAT_SUPPORT_PRODUCT_VERSION<span class="token operator">=</span><span class="
  <span class="token comment" spellcheck="true">#查看版本</span>
  docker version
 </code></pre>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211203233145061.png" alt="image-20211203233145061"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211203233145061.png" alt="image-20211203233145061"></p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#7helloworld</span>
 docker run hello-world
 </code></pre>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211203233340101.png" alt="image-20211203233340101"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211203233340101.png" alt="image-20211203233340101"></p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#8查看下载的helloworld的镜像</span>
  docker images
  
@@ -634,7 +634,7 @@ yum remove docker-ce docker-ce-cli containerd.io
 <blockquote>
 <p>阿里云镜像加速</p>
 </blockquote>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211203234251906.png" alt="image-20211203234251906"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211203234251906.png" alt="image-20211203234251906"></p>
 <p>配置</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mkdir</span> -p /etc/docker
 <span class="token function">sudo</span> <span class="token function">tee</span> /etc/Docker<span class="token punctuation">(</span>未完<span class="token punctuation">)</span>/daemon.json <span class="token operator">&lt;&lt;</span>-<span class="token string">'EOF'</span>
@@ -645,26 +645,26 @@ EOF
 <span class="token function">sudo</span> systemctl daemon-reload
 <span class="token function">sudo</span> systemctl restart docker
 </code></pre>
-<h2><span id="docker运行原理">Docker运行原理</span></h2><p><img src="/2022/01/08/docker-wei-wan/image-20211204085305456.png" alt="image-20211204085305456"></p>
+<h2><span id="docker运行原理">Docker运行原理</span></h2><p><img src="/2022/01/15/docker-wei-wan/image-20211204085305456.png" alt="image-20211204085305456"></p>
 <h2><span id="底层原理">底层原理</span></h2><blockquote>
 <p><strong>Docker是怎么工作的？</strong></p>
 </blockquote>
 <p>Docker是一个<strong>Client-Server结构</strong>的系统，Server以守护进程运行在主机上。通过Socket从客户端进行访问。</p>
 <p>Docker-Server接受到Docker-Clent的指令，就会执行</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204085911889.png" alt="image-20211204085911889"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204085911889.png" alt="image-20211204085911889"></p>
 <blockquote>
 <p><strong>Docker为什么比vm快？</strong></p>
 </blockquote>
 <ol>
 <li><p>Docker有着比虚拟更少的抽象层</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204090059690.png" alt="image-20211204090059690"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204090059690.png" alt="image-20211204090059690"></p>
 </li>
 <li><p>docker用的是宿主机的内核，vm需要Guest OS</p>
 </li>
 </ol>
 <p>所以说，新建一个容器的时候，docker不需要像虚拟机一样重新加载一个操作系统，避免引导。</p>
 <p>虚拟机加载Guest OS，分钟级别。docker利用宿主机的操作系统，没有这个过程，秒级！</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204090530567.png" alt="image-20211204090530567"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204090530567.png" alt="image-20211204090530567"></p>
 <h1><span id="docker的常用命令">Docker的常用命令</span></h1><h2><span id="帮助命令">帮助命令</span></h2><pre class=" language-bash"><code class="language-bash">docker version           <span class="token comment" spellcheck="true">#dacker版本信息</span>
 docker info              <span class="token comment" spellcheck="true"># 系统信息，包括镜像和容器的数量 详细</span>
 docker --help            <span class="token comment" spellcheck="true"># 帮助信息</span>
@@ -696,11 +696,11 @@ Options:
 <blockquote>
 <p><strong>docker search搜索镜像</strong></p>
 </blockquote>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204092314231.png" alt="image-20211204092314231"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204092314231.png" alt="image-20211204092314231"></p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#可选项 过滤</span>
 --filter<span class="token operator">=</span>STARS<span class="token operator">=</span>3000 <span class="token comment" spellcheck="true">#STARS大于3000的</span>
 </code></pre>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204092441801.png" alt="image-20211204092441801"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204092441801.png" alt="image-20211204092441801"></p>
 <blockquote>
 <p><strong>docker pull 下载镜像</strong></p>
 </blockquote>
@@ -756,11 +756,11 @@ Digest: sha256:d1cc87a3bd5dc07defc837bc9084f748a130606ff41923f46dec1986e0dc828d
 Status: Downloaded newer image <span class="token keyword">for</span> mysql:5.7
 docker.io/library/mysql:5.7
 </code></pre>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204093406822.png" alt="image-20211204093406822"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204093406822.png" alt="image-20211204093406822"></p>
 <blockquote>
 <p><strong>docker rmi 删除镜像</strong></p>
 </blockquote>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204093552184.png" alt="image-20211204093552184"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204093552184.png" alt="image-20211204093552184"></p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#根据id删除镜像 docker rmi -f id            #rmi：remove image</span>
 <span class="token comment" spellcheck="true">#删除多个镜像 docker rmi -f id id id</span>
 <span class="token comment" spellcheck="true">#批量删除镜像 docker rmi -f $(docker images -aq )#-qa所有镜像id</span>
@@ -860,7 +860,7 @@ root                64999               64981               0                   
 </code></pre>
 <p><strong>查看容器元数据</strong></p>
 <p>==docker inspect== 容器id</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204103624348.png" alt="image-20211204103624348"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204103624348.png" alt="image-20211204103624348"></p>
 <p><strong>进入当前正在运行都容器</strong></p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#我们通常容器都是使用后台方式运行，需要进入容器，修改一些配置</span>
 
@@ -902,7 +902,7 @@ drwx------. 15 <span class="token function">lpc</span>  <span class="token funct
 -rw-r--r--.  1 root root    0 12月  4 10:47 test.java
 <span class="token comment" spellcheck="true">#现在手动，未来我们可以使用-v卷技术，可以实现自动</span>
 </code></pre>
-<h2><span id="小结">小结</span></h2><p><img src="/2022/01/08/docker-wei-wan/image-20211204090846807.png" alt="image-20211204090846807"></p>
+<h2><span id="小结">小结</span></h2><p><img src="/2022/01/15/docker-wei-wan/image-20211204090846807.png" alt="image-20211204090846807"></p>
 <pre class=" language-shell"><code class="language-shell">attach      Attach to a running container            # 当前shell下attach连接指定运行镜像
 build       Build an image from a Dockerfile         # 通过Dockerfile定制镜像
 commit      Create a new image from a container changes   #提交当前容器为新镜像
@@ -980,9 +980,9 @@ b6c9414cfb3c   nginx     <span class="token string">"/docker-entrypoint.…"</sp
 b6c9414cfb3c
 </code></pre>
 <p>记得开放端口</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204112817196.png" alt="image-20211204112817196"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204112817196.png" alt="image-20211204112817196"></p>
 <p>外面访问<a target="_blank" rel="noopener" href="http://192.168.67.217:3344/">Welcome to nginx!</a></p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20211204112913741.png" alt="image-20211204112913741"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20211204112913741.png" alt="image-20211204112913741"></p>
 <p>思考问题：我们每次改动nginx配合文件，都需要进入容器内部？十分麻烦</p>
 <p>我们可以在容器外部提供一个映射路径，实现外部修改，内部自动同步？</p>
 <p>-v卷技术</p>
@@ -1045,13 +1045,13 @@ docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type
 #增加内存限制 -e 环境配置
 docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms64m -Xmx512m" elasticsearch:7.6.2
 </code></pre>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122102704327.png" alt="image-20220122102704327"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122102704327.png" alt="image-20220122102704327"></p>
 <p>加入限制后：</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122102617970.png" alt="image-20220122102617970"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122102617970.png" alt="image-20220122102617970"></p>
 <blockquote>
 <p>使用kibana连接es?</p>
 </blockquote>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122103051056.png" alt="image-20220122103051056"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122103051056.png" alt="image-20220122103051056"></p>
 <h3><span id="可视化">可视化</span></h3><ul>
 <li><p>portainer(先用)</p>
 <pre class=" language-shell"><code class="language-shell">docker run -d -p 8088:9000 \
@@ -1063,11 +1063,11 @@ docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type
 </ul>
 <h4><span id="什么是portainer">什么是portainer?</span></h4><p>Docker图形化界面管理工具！提供一个后台面板供我们操作！</p>
 <p>访问测试：外网8088：<a target="_blank" rel="noopener" href="http://192.168.67.217:8088/#/init/admin">http://192.168.67.217:8088/#/init/admin</a></p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122103803990.png" alt="image-20220122103803990"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122103803990.png" alt="image-20220122103803990"></p>
 <p>设置密码12345678,选择本地</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122103903354.png" alt="image-20220122103903354"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122103903354.png" alt="image-20220122103903354"></p>
 <p>进入</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122104034720.png" alt="image-20220122104034720"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122104034720.png" alt="image-20220122104034720"></p>
 <h1><span id="docker镜像详解">Docker镜像详解</span></h1><h2><span id="镜像是什么">镜像是什么</span></h2><p>镜像是一种轻量级、可执行的独立软件包，用来打包软件运行环境和基于运行环境开发的软件，他包含运行某个软件所需的所有内容，包括代码、运行时库、环境变量和配置文件。</p>
 <p>所有的应用，直接打包docker镜像，就可以直接跑起来！</p>
 <p>如何得到镜像：</p>
@@ -1085,9 +1085,9 @@ docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type
 <p>Docker镜像加载原理</p>
 </blockquote>
 <p>docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统UnionFS。<br>boots(boot file system）主要包含 bootloader和 Kernel, bootloader主要是引导加 kernel, Linux刚启动时会加载bootfs文件系统，在 Docker镜像的最底层是 bootfs。这一层与我们典型的Linux/Unix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由 bootfs转交给内核，此时系统也会卸载bootfs。<br>rootfs（root file system),在 bootfs之上。包含的就是典型 Linux系统中的/dev,/proc,/bin,/etc等标准目录和文件。 rootfs就是各种不同的操作系统发行版，比如 Ubuntu, Centos等等。</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122104300326-16428194595391.png" alt="image-20220122104300326"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122104300326-16428194595391.png" alt="image-20220122104300326"></p>
 <p>平时我们安装进虚拟机的CentOS都是好几个G，为什么Docker这里才200M？</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122105349733.png" alt="image-20220122105349733"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122105349733.png" alt="image-20220122105349733"></p>
 <p>对于一个精简的OS,rootfs可以很小，只需要包合最基本的命令，工具和程序库就可以了，因为底层直接用Host(本机)的kernel，自己只需要提供rootfs就可以了。</p>
 <p>由此可见对于不同的Linux发行版， boots基本是一致的， rootfs会有差別，因此不同的发行版可以公用bootfs.</p>
 <p>==虚拟机是分钟级别，容器是秒级！==</p>
@@ -1095,26 +1095,26 @@ docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type
 <p>分层的镜像</p>
 </blockquote>
 <p>我们可以去下载一个镜像，注意观察下载的日志输出，可以看到是一层层的在下载</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122105650483.png" alt="image-20220122105650483"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122105650483.png" alt="image-20220122105650483"></p>
 <p>思考：</p>
 <p>为什么Docker镜像要采用这种分层的结构呢？</p>
 <p>最大的好处，我觉得莫过于资源共享了！比如有多个镜像都从相同的Base镜像构建而来，那么宿主机只需在磁盘上保留一份base镜像，同时内存中也只需要加载一份base镜像，这样就可以为所有的容器服务了，而且镜像的每一层都可以被共享。</p>
 <p>查看镜像分层的方式可以通过<code>docker image inspect name</code>命令</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122110638465.png" alt="image-20220122110638465"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122110638465.png" alt="image-20220122110638465"></p>
 <p><strong>理解：</strong></p>
 <p> 所有的 Docker镜像都起始于一个基础镜像层，当进行修改或培加新的内容时，就会在当前镜像层之上，创建新的镜像层。</p>
 <p>举一个简单的例子，假如基于 Ubuntu Linux16.04创建一个新的镜像，这就是新镜像的第一层；如果在该镜像中添加 Python包，<br>就会在基础镜像层之上创建第二个镜像层；如果继续添加一个安全补丁，就会创健第三个镜像层该像当前已经包含3个镜像层，如下图所示（这只是一个用于演示的很简单的例子）。</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122110814639.png" alt="image-20220122110814639"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122110814639.png" alt="image-20220122110814639"></p>
 <p> 在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合，理解这一点非常重要。下图中举了一个简单的例子，每个镜像层包含3个文件，而镜像包含了来自两个镜像层的6个文件。</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122110837407.png" alt="image-20220122110837407"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122110837407.png" alt="image-20220122110837407"></p>
 <p> 上图中的镜像层跟之前图中的略有区別，主要目的是便于展示文件<br>下图中展示了一个稍微复杂的三层镜像，在外部看来整个镜像只有6个文件，这是因为最上层中的文件7是文件5的一个更新版</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122110955319.png" alt="image-20220122110955319"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122110955319.png" alt="image-20220122110955319"></p>
 <p> 这种情況下，上层镜像层中的文件覆盖了底层镜像层中的文件。这样就使得文件的更新版本作为一个新镜像层添加到镜像当中</p>
 <p>Docker通过存储引擎（新版本采用快照机制）的方式来实现镜像层堆栈，并保证多镜像层对外展示为统一的文件系统</p>
 <p>Linux上可用的存储引撃有AUFS、 Overlay2、 Device Mapper、Btrfs以及ZFS。顾名思义，每种存储引擎都基于 Linux中对应的件系统或者块设备技术，井且每种存储引擎都有其独有的性能特点。</p>
 <p>Docker在 Windows上仅支持 windowsfilter 一种存储引擎，该引擎基于NTFS文件系统之上实现了分层和CoW [1]。</p>
 <p>下图展示了与系统显示相同的三层镜像。所有镜像层堆并合井，对外提供统一的视图</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122111141470.png" alt="image-20220122111141470"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122111141470.png" alt="image-20220122111141470"></p>
 <blockquote>
 <p>特点</p>
 </blockquote>
@@ -1136,13 +1136,13 @@ cp -r webapps.dist/* webapps
 #docker commit -m="描述信息" -a="作者" 容器id 目标镜像名:[TAG]
 docker commit -a="dtxg" -m="add webapps app" e2ac9f32a68a tomcat02:1.0
 </code></pre>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122112311897.png" alt="image-20220122112311897"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122112311897.png" alt="image-20220122112311897"></p>
 <h1><span id="容器数据卷">容器数据卷</span></h1><h2><span id="什么是容器数据卷">什么是容器数据卷?</span></h2><p>为了实现数据持久化，使容器之间可以共享数据。可以将容器内的目录，挂载到宿主机上或其他容器内，实现同步和共享的操作。即使将容器删除，挂载到本地的数据卷也不会丢失。</p>
 <h2><span id="使用容器数据卷">使用容器数据卷</span></h2><p>使用命令：-v</p>
 <pre class=" language-shell"><code class="language-shell">dokcer run -it -v #主机内目录:容器内目录 镜像名/id
 </code></pre>
 <p>将容器内目录挂载到主机内目录上，通过<strong>docker inspect</strong>命令查看该容器即可以看到挂载信息：</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122114310193.png" alt="image-20220122114310193"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122114310193.png" alt="image-20220122114310193"></p>
 <p>建立挂载关系后，只要使用命令在容器内内新建一个文件,主机的目录里也会有这个文件</p>
 <p>从而实现了容器和主机的文件同步和共享</p>
 <h2><span id="匿名挂载">匿名挂载</span></h2><p>没名字的挂载</p>
@@ -1155,11 +1155,11 @@ docker commit -a="dtxg" -m="add webapps app" e2ac9f32a68a tomcat02:1.0
 <pre><code>docker run -d  -v /主机路径:容器内目录  镜像名/id  # 具名挂载
 </code></pre>
 <p><strong>docker volume</strong> </p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122134203652.png" alt="image-20220122134203652"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122134203652.png" alt="image-20220122134203652"></p>
 <p><strong>docker volume ls</strong>命令查看所有挂载的卷：</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122134457402.png" alt="image-20220122134457402"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122134457402.png" alt="image-20220122134457402"></p>
 <p><strong>docker volume inspect 卷名</strong>找到主机内目录：</p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220122134537414.png" alt="image-20220122134537414"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220122134537414.png" alt="image-20220122134537414"></p>
 <p>所有docker容器内的卷，在未指定主机内目录时，都在：*/var/lib/Docker(未完)/volumes/卷名/_data* 下，可通过具名挂载可以方便的找到卷，因此广泛使用这种方式进行挂载。</p>
 <h2><span id="数据卷容器">数据卷容器</span></h2><pre class=" language-shell"><code class="language-shell">docker run -it --name container02 --volumes from container01 镜像名/id  # 将两个容器进行挂载
 #容器2挂载到了容器1，现在容器1叫做数据卷容器
@@ -1230,7 +1230,7 @@ docker push    # 发布镜像
 <li>每一个指令都会创建提交一个新的镜像层并提交</li>
 </ul>
 <h2><span id="构建实例">构建实例</span></h2><p><a target="_blank" rel="noopener" href="https://github.com/CentOS/sig-cloud-instance-images/blob/b2d195220e1c5b181427c3172829c23ab9cd27eb/Docker(%E6%9C%AA%E5%AE%8C)/Dockerfile">https://github.com/CentOS/sig-cloud-instance-images/blob/b2d195220e1c5b181427c3172829c23ab9cd27eb/Docker(未完)/Dockerfile</a></p>
-<p><img src="/2022/01/08/docker-wei-wan/image-20220123141814543.png" alt="image-20220123141814543"></p>
+<p><img src="/2022/01/15/docker-wei-wan/image-20220123141814543.png" alt="image-20220123141814543"></p>
 <blockquote>
 <p>自己创建一个镜像</p>
 </blockquote>
@@ -1320,7 +1320,7 @@ Options:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dtxt.github.io/2022/01/08/docker-wei-wan/">https://dtxt.github.io/2022/01/08/docker-wei-wan/</a>
+                    <a href="https://dtxt.github.io/2022/01/15/docker-wei-wan/">https://dtxt.github.io/2022/01/15/docker-wei-wan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1411,7 +1411,7 @@ Options:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/08/jvm/">
+                <a href="/2022/01/15/jvm/">
                     <div class="card-image">
                         
                         <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.ancii.com%2Farticle%2Fimage%2Fv1%2FV1%2Fgl%2F_d%2Fd_g1lVoFnaHF66uLvjLNgrNwLOlgxjAwTZLe7DAT3x2Fkl-mC2qtUeP2-EW08WgEe9g6FQVbaDj9V8eB7ChN5MnBvQoV7GiS9oWAwFQtFCTaDuzjadezJdbsAlKZ0HNLnqtblPv39W1JDLSqNppNZAu6QYviJn8CySXfMECb294.jpg&refer=http%3A%2F%2Fcdn.ancii.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647482882&t=b8c8b6965ae7600808148d9c0c4396ab" class="responsive-img" alt="JVM">
@@ -1427,7 +1427,7 @@ Options:
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
                         </span>
                         <span class="publish-author">
                             
@@ -1459,7 +1459,7 @@ Options:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/08/vue/">
+                <a href="/2022/01/15/vue/">
                     <div class="card-image">
                         
                         <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-d03822dbb80626e39fb593fc70ec63bd_r.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647482904&t=9b0963d63052b67ca702599809304ab2" class="responsive-img" alt="Vue">
@@ -1475,7 +1475,7 @@ Options:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
                             </span>
                         <span class="publish-author">
                             

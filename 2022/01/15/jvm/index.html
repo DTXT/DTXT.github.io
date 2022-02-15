@@ -471,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-08
+                    2022-01-15
                 </div>
                 
 
@@ -519,13 +519,13 @@
 <li>内存快照如何抓取，怎么分析Dump文件？</li>
 <li>谈谈JVM中，类加载器你的认识</li>
 </ul>
-<h2><span id="jvm的位置">JVM的位置</span></h2><p><img src="/2022/01/08/jvm/image-20211126152848661.png" alt="image-20211126152848661"></p>
-<h2><span id="jvm的体系结构">JVM的体系结构</span></h2><p><img src="/2022/01/08/jvm/image-20211126154123790.png" alt="image-20211126154123790"></p>
+<h2><span id="jvm的位置">JVM的位置</span></h2><p><img src="/2022/01/15/jvm/image-20211126152848661.png" alt="image-20211126152848661"></p>
+<h2><span id="jvm的体系结构">JVM的体系结构</span></h2><p><img src="/2022/01/15/jvm/image-20211126154123790.png" alt="image-20211126154123790"></p>
 <p>图 .java-&gt;.class的变化</p>
 <p>百分之<strong>99的JVM调优都是在堆中调优</strong>，Java栈、本地方法栈、程序计数器是不会有垃圾存在的。</p>
-<p><img src="/2022/01/08/jvm/image-20211126154421727.png" alt="image-20211126154421727"></p>
+<p><img src="/2022/01/15/jvm/image-20211126154421727.png" alt="image-20211126154421727"></p>
 <h2><span id="类加载器">类加载器</span></h2><p><strong>作用：加载Class文件~</strong></p>
-<p><img src="/2022/01/08/jvm/image-20211126160353174.png" alt="image-20211126160353174"></p>
+<p><img src="/2022/01/15/jvm/image-20211126160353174.png" alt="image-20211126160353174"></p>
 <p>图 类在经过Class Loader之后的变化</p>
 <ol>
 <li>启动类(根)加载器  </li>
@@ -534,16 +534,16 @@
 <li>自定义类加载器</li>
 </ol>
 <h2><span id="双亲委派机制">双亲委派机制</span></h2><p>检查顺序从下至上，加载顺序从上到下。</p>
-<p><img src="/2022/01/08/jvm/image-20211126163101723.png" alt="image-20211126163101723"></p>
+<p><img src="/2022/01/15/jvm/image-20211126163101723.png" alt="image-20211126163101723"></p>
 <p>如果一个类加载器需要加载类，那么首先它会把这个类请求委派给父类加载器去完成，每一层都是如此。一直递归到顶层，当父加载器无法完成这个请求时，子类才会尝试去加载。</p>
 <h2><span id="沙箱安全机制">沙箱安全机制</span></h2><p>Java安全模型的核心就是Java沙箱(sandbox) ,  什么是沙箱?沙箱是一个限制程序运行的环境。沙箱机制就是<strong>将Java代码限定在虚拟机(JVM)特定的运行范围中，并且严格限制代码对本地系统资源访问</strong>，通过这样的措施来保证对代码的有效隔离，防止对本地系统造成破坏。  沙箱主要限制系统资源访问，那系统资源包括什么? CPU、内存、文件系统、网络。不同级别的沙箱对这些资源访问的限制也可以不一样。  所有的Java程序运行都可以指定沙箱，可以定制安全策略。  在Java中将执行程序分成本地代码和远程代码两种，本地代码默认视为可信任的，而远程代码则被看作是不受信的。对于授信的本地代码,可以访问一切本地资源。而对于非授信的远程代码在早期的Java实现中，安全依赖于沙箱Sandbox)机制。如下图所示JDK1.0安全模型</p>
-<p><img src="/2022/01/08/jvm/image-20211126163559531.png" alt="image-20211126163559531"></p>
+<p><img src="/2022/01/15/jvm/image-20211126163559531.png" alt="image-20211126163559531"></p>
 <p>图 JDK1.0安全模型</p>
 <p> 但如此严格的安全机制也给程序的功能扩展带来障碍，比如当用户希望远程代码访问本地系统的文件时候，就无法实现。因此在后续的Java1.1版本中，针对安全机制做了改进，增加了安全策略，允许用户指定代码对本地资源的访问权限。如下图所示JDK1.1安全模型</p>
-<p><img src="/2022/01/08/jvm/image-20211126163628041.png" alt="image-20211126163628041"></p>
+<p><img src="/2022/01/15/jvm/image-20211126163628041.png" alt="image-20211126163628041"></p>
 <p>图 JDK1.1安全模型</p>
 <p> 在Java1.2版本中，再次改进了安全机制，增加了代码签名。不论本地代码或是远程代码，都会按照用户的安全策略设定，由类加载器加载到虚拟机中权限不同的运行空间，来实现差异化的代码执行权限控制。如下图所示</p>
-<p><img src="/2022/01/08/jvm/image-20211126163649772.png" alt="image-20211126163649772"></p>
+<p><img src="/2022/01/15/jvm/image-20211126163649772.png" alt="image-20211126163649772"></p>
 <p>图 JDK1.6安全模型</p>
 <p><strong>组成沙箱的基本组件</strong><br>●字节码校验器(bytecode verifier) :确保Java类文件遵循Java语言规范。这样可以帮助Java程序实现内存保护。但并不是所有的类文件都会经过字节码校验，比如核心类。</p>
 <p> ●类裝载器(class loader) :其中类装载器在3个方面对Java沙箱起作用  </p>
@@ -602,12 +602,12 @@
 <p>栈放什么东西：<strong>8大基本类型+对象引用+实例的方法</strong></p>
 <p><strong>栈运行原理:栈帧</strong> 栈满了: StackOverflowError</p>
 <p>栈帧图解 栈底部子帧指向上一个栈的方法 上一个栈的父帧指向栈底部方法：</p>
-<p><img src="/2022/01/08/jvm/image-20211126200939380.png" alt="image-20211126200939380"></p>
+<p><img src="/2022/01/15/jvm/image-20211126200939380.png" alt="image-20211126200939380"></p>
 <p>栈 堆 方法区交互关系：</p>
-<p><img src="/2022/01/08/jvm/image-20211126195741076.png" alt="image-20211126195741076"></p>
+<p><img src="/2022/01/15/jvm/image-20211126195741076.png" alt="image-20211126195741076"></p>
 <h2><span id="三种jvm">三种JVM</span></h2><ul>
 <li><p>Sun公司HotSpot Java Hotspot™ 64-Bit Server VM (build 25.181-b13,mixed mode)</p>
-<p><img src="/2022/01/08/jvm/image-20211126201732562.png" alt="image-20211126201732562"></p>
+<p><img src="/2022/01/15/jvm/image-20211126201732562.png" alt="image-20211126201732562"></p>
 </li>
 <li><p> BEA JRockit </p>
 </li>
@@ -624,12 +624,12 @@
 <li>永久区Perm</li>
 </ul>
 <p>堆内存详细划分:</p>
-<p><img src="/2022/01/08/jvm/image-20211126210515466.png" alt="image-20211126210515466"></p>
+<p><img src="/2022/01/15/jvm/image-20211126210515466.png" alt="image-20211126210515466"></p>
 <p>GC垃圾回收,主要是在伊甸园区和养老区~ </p>
 <p>假设内存满了,OOM,堆内存不够! java.lang.OutOfMemoryError:Java heap space </p>
 <p>永久存储区里存放的都是Java自带的 例如lang包中的类 如果不存在这些，Java就跑不起来了 在JDK8以后，<strong>永久存储区改了个名字(元空间)</strong></p>
 <p>堆内存溢出:</p>
-<p><img src="/2022/01/08/jvm/image-20211126210758616.png" alt="image-20211126210758616"></p>
+<p><img src="/2022/01/15/jvm/image-20211126210758616.png" alt="image-20211126210758616"></p>
 <h2><span id="新生区-老年区">新生区、老年区</span></h2><p>新生代 ( Young ) = 1/3 的堆空间大小。老年代 ( Old ) = 2/3 的堆空间大小。</p>
 <h3><span id="新生区">新生区</span></h3><ul>
 <li>类:诞生和成长的地方，甚至死亡; </li>
@@ -637,7 +637,7 @@
 <li>幸存者区(0,1)</li>
 </ul>
 <p> 重GC和轻GC：</p>
-<p><img src="/2022/01/08/jvm/image-20211126211301542.png" alt="image-20211126211301542"></p>
+<p><img src="/2022/01/15/jvm/image-20211126211301542.png" alt="image-20211126211301542"></p>
 <p><strong>伊甸园满了就触发轻GC，经过轻GC存活下来的就到了幸存者区，幸存者区满之后意味着新生区也满了，则触发重GC，经过重GC之后存活下来的就到了养老区。</strong> 真理:经过研究，99%的对象都是临时对象!|</p>
 <h2><span id="永久区">永久区</span></h2><p><strong>这个区域常驻内存的。用来存放JDK自身携带的Class对象。Interface元数据，存储的是Java运行时的一些环境</strong>，这个区域不存在垃圾回收，关闭虚拟机就会释放内存</p>
 <ul>
@@ -646,7 +646,7 @@
 <li>jdk1.8之后:无永久代,常量池在元空间</li>
 </ul>
 <p>JVM探究:</p>
-<p><img src="/2022/01/08/jvm/image-20211126214302376.png" alt="image-20211126214302376"></p>
+<p><img src="/2022/01/15/jvm/image-20211126214302376.png" alt="image-20211126214302376"></p>
 <p>元空间：逻辑上存在，物理上不存在 (因为存储在本地磁盘内) 所以最后并不算在JVM虚拟机内存中</p>
 <h2><span id="堆内存调优">堆内存调优</span></h2><p>默认情况下: 分配的总内存 是电脑内存的1/4,而初始化的内存: 1/64</p>
 <p>OOM:堆内存溢出</p>
@@ -672,8 +672,8 @@
 <p>-Xmx 设置最大分配内存,默认1/4</p>
 <pre><code>-Xms1m -Xmx8m -XX:+HeapDumpOnOutOfMemoryError
 </code></pre>
-<p><img src="/2022/01/08/jvm/image-20211126222814130.png" alt="image-20211126222814130"></p>
-<p><img src="/2022/01/08/jvm/image-20211126222831181.png" alt="image-20211126222831181"></p>
+<p><img src="/2022/01/15/jvm/image-20211126222814130.png" alt="image-20211126222814130"></p>
+<p><img src="/2022/01/15/jvm/image-20211126222831181.png" alt="image-20211126222831181"></p>
 <h2><span id="gc">GC</span></h2><p>GC:作用区域 堆+方法区</p>
 <p>JVM在进行GC时，并不是对这三个区域统一回收。大部分时候，回收都是新生代~</p>
 <ul>
@@ -689,20 +689,20 @@
 <li>GC的算法有哪些? 标记清除法 , 标记压缩 , 复制算法, 引用计数器, 怎么用的?</li>
 <li>轻GC和重GC分别在什么时候发生?</li>
 </ul>
-<h2><span id="常用算法"><strong>常用算法</strong></span></h2><h3><span id="引用计数法"><strong>引用计数法</strong></span></h3><p><img src="/2022/01/08/jvm/image-20211126224431634.png" alt="image-20211126224431634"></p>
-<h3><span id="复制算法"><strong>复制算法</strong></span></h3><p><img src="/2022/01/08/jvm/image-20211126225939278.png" alt="image-20211126225939278"></p>
-<p><img src="/2022/01/08/jvm/image-20211126230421699.png" alt="image-20211126230421699"></p>
+<h2><span id="常用算法"><strong>常用算法</strong></span></h2><h3><span id="引用计数法"><strong>引用计数法</strong></span></h3><p><img src="/2022/01/15/jvm/image-20211126224431634.png" alt="image-20211126224431634"></p>
+<h3><span id="复制算法"><strong>复制算法</strong></span></h3><p><img src="/2022/01/15/jvm/image-20211126225939278.png" alt="image-20211126225939278"></p>
+<p><img src="/2022/01/15/jvm/image-20211126230421699.png" alt="image-20211126230421699"></p>
 <ul>
 <li>好处:没有内存的碎片</li>
 <li>坏处:浪费了内存空间:多了一半空间永远是空 to.假设对象100%存活(极端情况)</li>
 </ul>
 <p><strong>复制算法最佳使用场景</strong>:对象存活度较低的时候:新生区;</p>
-<h3><span id="标记清除算法"><strong>标记清除算法</strong></span></h3><p><img src="/2022/01/08/jvm/image-20211126230939034.png" alt="image-20211126230939034"></p>
+<h3><span id="标记清除算法"><strong>标记清除算法</strong></span></h3><p><img src="/2022/01/15/jvm/image-20211126230939034.png" alt="image-20211126230939034"></p>
 <ul>
 <li>优点:不需要额外的空间</li>
 <li>缺点:两次扫描,严重浪费时间,会产生内存碎片</li>
 </ul>
-<h3><span id="标记压缩优化标记清除"><strong>标记压缩(优化标记清除)</strong></span></h3><p><img src="/2022/01/08/jvm/image-20211126231326610.png" alt="image-20211126231326610"></p>
+<h3><span id="标记压缩优化标记清除"><strong>标记压缩(优化标记清除)</strong></span></h3><p><img src="/2022/01/15/jvm/image-20211126231326610.png" alt="image-20211126231326610"></p>
 <ul>
 <li>三部曲:标记,清除.压缩</li>
 </ul>
@@ -723,10 +723,10 @@
 </ul>
 <h2><span id="jmm">JMM</span></h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33805483/article/details/104099089">JAVA面试题——JMM内存模型_Huntermax LC的博客-CSDN博客_jmm面试题</a></p>
 <h3><span id="什么是jmm">什么是JMM？</span></h3><p>JMM ：（java Memory Model 缩写）java内存模型</p>
-<h3><span id="他是干什么的">他是干什么的？</span></h3><p><img src="/2022/01/08/jvm/image-20211126232747637.png" alt="image-20211126232747637"></p>
+<h3><span id="他是干什么的">他是干什么的？</span></h3><p><img src="/2022/01/15/jvm/image-20211126232747637.png" alt="image-20211126232747637"></p>
 <p>解决共享对象可见性的问题：volilate</p>
 <h3><span id="他该如何学习">他该如何学习</span></h3><p>JMM ：抽象的概念，理论</p>
-<p><img src="/2022/01/08/jvm/image-20211126232830203.png" alt="image-20211126232830203"></p>
+<p><img src="/2022/01/15/jvm/image-20211126232830203.png" alt="image-20211126232830203"></p>
 
                 
             </div>
@@ -753,7 +753,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dtxt.github.io/2022/01/08/jvm/">https://dtxt.github.io/2022/01/08/jvm/</a>
+                    <a href="https://dtxt.github.io/2022/01/15/jvm/">https://dtxt.github.io/2022/01/15/jvm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -840,45 +840,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/01/08/typora-jian-dan-shi-yong/">
+                <a href="/2022/01/15/jvm/">
                     <div class="card-image">
                         
-                        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic2.zhimg.com%2Fv2-ce037df0b801b7b96c8b531fabf575e4_1200x500.jpg&refer=http%3A%2F%2Fpic2.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647482549&t=8d96a92ab290edd3325406d78138e179" class="responsive-img" alt="我的第一篇文章">
+                        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.ancii.com%2Farticle%2Fimage%2Fv1%2FV1%2Fgl%2F_d%2Fd_g1lVoFnaHF66uLvjLNgrNwLOlgxjAwTZLe7DAT3x2Fkl-mC2qtUeP2-EW08WgEe9g6FQVbaDj9V8eB7ChN5MnBvQoV7GiS9oWAwFQtFCTaDuzjadezJdbsAlKZ0HNLnqtblPv39W1JDLSqNppNZAu6QYviJn8CySXfMECb294.jpg&refer=http%3A%2F%2Fcdn.ancii.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647482882&t=b8c8b6965ae7600808148d9c0c4396ab" class="responsive-img" alt="JVM">
                         
-                        <span class="card-title">我的第一篇文章</span>
+                        <span class="card-title">JVM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单使用Typora
+                            jvm基础
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    文本工具
+                            <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/md/">
-                        <span class="chip bg-color">md</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -892,7 +894,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/08/docker-wei-wan/">
+                <a href="/2022/01/15/docker-wei-wan/">
                     <div class="card-image">
                         
                         <img src="https://img1.baidu.com/it/u=2907334177,755581878&fm=253&fmt=auto&app=138&f=JPEG?w=757&h=500" class="responsive-img" alt="Docker">
@@ -908,7 +910,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
                             </span>
                         <span class="publish-author">
                             
