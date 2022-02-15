@@ -492,7 +492,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    19 分
                 </div>
                 
 
@@ -786,9 +786,9 @@
 </ul>
 </li>
 <li><p>使用<code>&lt;transition&gt;</code>包裹要过度的元素，并配置name属性：</p>
-<pre class=" language-vue"><code class="language-vue"><transition name="hello">
-    <h1 v-show="isShow"><span id="你好啊">你好啊！</span></h1>
-</transition>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>transition name<span class="token operator">=</span><span class="token string">"hello"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>h1 v<span class="token operator">-</span>show<span class="token operator">=</span><span class="token string">"isShow"</span><span class="token operator">></span>你好啊！<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>transition<span class="token operator">></span>
 </code></pre>
 </li>
 <li><p>备注：若有多个元素需要过度，则需要使用：<code>&lt;transition-group&gt;</code>，且每个元素都要指定<code>key</code>值。</p>
