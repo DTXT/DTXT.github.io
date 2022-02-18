@@ -6,7 +6,7 @@
   <link href="https://dtxt.github.io/atom.xml" rel="self"/>
   
   <link href="https://dtxt.github.io/"/>
-  <updated>2022-02-15T02:24:56.394Z</updated>
+  <updated>2022-02-18T12:57:35.584Z</updated>
   <id>https://dtxt.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试问题汇总</title>
+    <link href="https://dtxt.github.io/2022/02/18/mian-shi-wen-ti-hui-zong/"/>
+    <id>https://dtxt.github.io/2022/02/18/mian-shi-wen-ti-hui-zong/</id>
+    <published>2022-02-18T02:24:42.000Z</published>
+    <updated>2022-02-18T12:57:35.584Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="面试问题汇总" scheme="https://dtxt.github.io/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    
+    
+    <category term="面试" scheme="https://dtxt.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库</title>
+    <link href="https://dtxt.github.io/2022/02/18/mysql/"/>
+    <id>https://dtxt.github.io/2022/02/18/mysql/</id>
+    <published>2022-02-18T02:24:42.000Z</published>
+    <updated>2022-02-18T13:01:13.151Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;1-初始mysql&quot;&gt;1、初始mysql&lt;/span&gt;&lt;/h2&gt;&lt;pre class=&quot; language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;mysql &lt;span class=&quot;token</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://dtxt.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://dtxt.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>JVM</title>
