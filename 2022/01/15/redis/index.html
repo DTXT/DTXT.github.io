@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-15
+                    2022-02-22
                 </div>
                 
 
@@ -541,7 +541,7 @@
 <p>2.大数据量高性能（Redis一秒可以写8万次，读11万次，NoSQL的缓存记录级，是一种细粒度的缓存，性能会比较高！）</p>
 <p>3.数据类型是多样型的！（不需要事先设计数据库，随取随用）</p>
 <p>4.传统的 RDBMS 和 NoSQL</p>
-<pre><code>传统的RDBMS(关系型数据库管理系统)
+<pre class=" language-tex"><code class="language-tex">传统的RDBMS(关系型数据库管理系统)
 - 结构化组织
 - SQL
 - 数据和关系都存在单独的表中 row col
@@ -550,7 +550,7 @@
 - 基础的事务
 - ...
 </code></pre>
-<pre><code>Nosql
+<pre class=" language-tex"><code class="language-tex">Nosql
 -不仅仅是数据
 -没有固定的查询语言
 -键值对存储，列存储，文档存储，图形数据库（社交关系）
@@ -1436,7 +1436,7 @@ OK
 <li><code>BITPOS key bit [start] [end]</code>    返回字符串里面第一个被设置为1或者0的bit位。start和end只能按字节,不能按位</li>
 </ul>
 <h1><span id="事务">事务</span></h1><p>Redis的单条命令是保证原子性的，<strong>但是redis事务不能保证原子性</strong></p>
-<pre><code>Redis事务本质：一组命令的集合。
+<pre class=" language-tex"><code class="language-tex">Redis事务本质：一组命令的集合。
 
 ----------------- 队列 set set set 执行 -------------------
 
@@ -2089,7 +2089,7 @@ OK
 <p><img src="/2022/01/15/redis/image-20211203112450805.png" alt="image-20211203112450805"></p>
 <blockquote>
 <h2><span id="通用">通用</span></h2></blockquote>
-<pre><code>daemonize yes//默认是no 启动守护进程启动
+<pre class=" language-tex"><code class="language-tex">daemonize yes//默认是no 启动守护进程启动
 pidfile /var/run/redis_6379.pid #如果以后台方式启动，我们就需要指定一个pid文件
 </code></pre>
 <p>日志</p>
@@ -2105,7 +2105,7 @@ pidfile /var/run/redis_6379.pid #如果以后台方式启动，我们就需要�
 <p>在规定的时间内，执行了多少操作，则会持久化到.rdb.aof</p>
 <p>redis是内存数据库，断电即失</p>
 <p><img src="/2022/01/15/redis/image-20211203113150974.png" alt="image-20211203113150974"></p>
-<pre><code>如果900秒内，如果至少有1个key进行了修改，我们就进行持久化
+<pre class=" language-tex"><code class="language-tex">如果900秒内，如果至少有1个key进行了修改，我们就进行持久化
 如果300秒内，如果至少有10个key进行了修改，我们就进行持久化
 如果60秒内，如果至少有10000个key进行了修改，我们就进行持久化
 </code></pre>
@@ -2146,7 +2146,7 @@ OK
 <p><img src="/2022/01/15/redis/image-20211203114307483.png" alt="image-20211203114307483"></p>
 <p><img src="/2022/01/15/redis/image-20211203114406452.png" alt="image-20211203114406452"></p>
 <p>maxmemory-policy noviction (内存到达上限后的处理策略)　　</p>
-<pre><code>1、volatile-lru：只对设置了过期时间的key进行LRU（默认值）
+<pre class=" language-tex"><code class="language-tex">1、volatile-lru：只对设置了过期时间的key进行LRU（默认值）
 
 2、allkeys-lru：删除LRU算法的key
 
@@ -2987,7 +2987,7 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">83.5k</span>
+                        class="white-color">83.9k</span>
             
             
             

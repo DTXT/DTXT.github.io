@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-15
+                    2022-02-22
                 </div>
                 
 
@@ -1146,13 +1146,13 @@ docker commit -a="dtxg" -m="add webapps app" e2ac9f32a68a tomcat02:1.0
 <p>建立挂载关系后，只要使用命令在容器内内新建一个文件,主机的目录里也会有这个文件</p>
 <p>从而实现了容器和主机的文件同步和共享</p>
 <h2><span id="匿名挂载">匿名挂载</span></h2><p>没名字的挂载</p>
-<pre><code>docker run -d  -v 容器内目录  镜像名/id  # 匿名挂载
+<pre class=" language-shell"><code class="language-shell">docker run -d  -v 容器内目录  镜像名/id  # 匿名挂载
 </code></pre>
 <h2><span id="具名挂载">具名挂载</span></h2><p>有名字的挂载</p>
-<pre><code>docker run -d  -v 卷名:容器内目录  镜像名/id  # 具名挂载
+<pre class=" language-shell"><code class="language-shell">docker run -d  -v 卷名:容器内目录  镜像名/id  # 具名挂载
 </code></pre>
 <p>指定路径挂载</p>
-<pre><code>docker run -d  -v /主机路径:容器内目录  镜像名/id  # 具名挂载
+<pre class=" language-shell"><code class="language-shell">docker run -d  -v /主机路径:容器内目录  镜像名/id  # 具名挂载
 </code></pre>
 <p><strong>docker volume</strong> </p>
 <p><img src="/2022/01/15/docker-wei-wan/image-20220122134203652.png" alt="image-20220122134203652"></p>
@@ -1680,7 +1680,7 @@ Options:
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">83.5k</span>
+                        class="white-color">83.9k</span>
             
             
             

@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-15
+                    2022-02-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    21 分
                 </div>
                 
 
@@ -646,7 +646,8 @@
 <li><p>相关API：</p>
 <ol>
 <li><p><code>xxxxxStorage.setItem('key', 'value');</code></p>
-<pre><code>             该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
+<pre><code>         该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
+         
 </code></pre>
 </li>
 <li><p><code>xxxxxStorage.getItem('person');</code></p>
@@ -843,38 +844,38 @@
 <li><p>使用方式：</p>
 <ol>
 <li><p>默认插槽：</p>
-<pre class=" language-vue"><code class="language-vue">父组件中：
-        <category>
-           <div>html结构1</div>
-        </category>
+<pre class=" language-js"><code class="language-js">父组件中：
+        <span class="token operator">&lt;</span>Category<span class="token operator">></span>
+           <span class="token operator">&lt;</span>div<span class="token operator">></span>html结构<span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Category<span class="token operator">></span>
 子组件中：
-        <template>
-            <div>
-               <!-- 定义插槽 -->
-               <slot>插槽默认内容...</slot>
-            </div>
-        </template>
+        <span class="token operator">&lt;</span>template<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div<span class="token operator">></span>
+               <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 定义插槽 <span class="token operator">--</span><span class="token operator">></span>
+               <span class="token operator">&lt;</span>slot<span class="token operator">></span>插槽默认内容<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 </code></pre>
 </li>
 <li><p>具名插槽：</p>
-<pre class=" language-vue"><code class="language-vue">父组件中：
-        <category>
-            <template slot="center">
-              <div>html结构1</div>
-            </template>
+<pre class=" language-js"><code class="language-js">父组件中：
+        <span class="token operator">&lt;</span>Category<span class="token operator">></span>
+            <span class="token operator">&lt;</span>template slot<span class="token operator">=</span><span class="token string">"center"</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>div<span class="token operator">></span>html结构<span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-            <template v-slot:footer>
-               <div>html结构2</div>
-            </template>
-        </category>
+            <span class="token operator">&lt;</span>template v<span class="token operator">-</span>slot<span class="token punctuation">:</span>footer<span class="token operator">></span>
+               <span class="token operator">&lt;</span>div<span class="token operator">></span>html结构<span class="token number">2</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Category<span class="token operator">></span>
 子组件中：
-        <template>
-            <div>
-               <!-- 定义插槽 -->
-               <slot name="center">插槽默认内容...</slot>
-               <slot name="footer">插槽默认内容...</slot>
-            </div>
-        </template>
+        <span class="token operator">&lt;</span>template<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div<span class="token operator">></span>
+               <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 定义插槽 <span class="token operator">--</span><span class="token operator">></span>
+               <span class="token operator">&lt;</span>slot name<span class="token operator">=</span><span class="token string">"center"</span><span class="token operator">></span>插槽默认内容<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+               <span class="token operator">&lt;</span>slot name<span class="token operator">=</span><span class="token string">"footer"</span><span class="token operator">></span>插槽默认内容<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 </code></pre>
 </li>
 <li><p>作用域插槽：</p>
@@ -882,41 +883,41 @@
 <li><p>理解：<span style="color:red">数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定。</span>（games数据在Category组件中，但使用数据所遍历出来的结构由App组件决定）</p>
 </li>
 <li><p>具体编码：</p>
-<pre class=" language-vue"><code class="language-vue">父组件中：
-        <category>
-            <template scope="scopeData">
-                <!-- 生成的是ul列表 -->
-                <ul>
-                    <li v-for="g in scopeData.games" :key="g">{{g}}</li>
-                </ul>
-            </template>
-        </category>
+<pre class=" language-js"><code class="language-js">父组件中：
+        <span class="token operator">&lt;</span>Category<span class="token operator">></span>
+            <span class="token operator">&lt;</span>template scope<span class="token operator">=</span><span class="token string">"scopeData"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 生成的是ul列表 <span class="token operator">--</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>ul<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>li v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"g in scopeData.games"</span> <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"g"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>g<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Category<span class="token operator">></span>
 
-        <category>
-            <template slot-scope="scopeData">
-                <!-- 生成的是h4标题 -->
-                <h4 v-for="g in scopeData.games" :key="g"><span id="g">{{g}}</span></h4>
-            </template>
-        </category>
+        <span class="token operator">&lt;</span>Category<span class="token operator">></span>
+            <span class="token operator">&lt;</span>template slot<span class="token operator">-</span>scope<span class="token operator">=</span><span class="token string">"scopeData"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 生成的是h4标题 <span class="token operator">--</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>h4 v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"g in scopeData.games"</span> <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"g"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>g<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Category<span class="token operator">></span>
 子组件中：
-        <template>
-            <div>
-                <slot :games="games"></slot>
-            </div>
-        </template>
+        <span class="token operator">&lt;</span>template<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span>slot <span class="token punctuation">:</span>games<span class="token operator">=</span><span class="token string">"games"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
         
-        <script>
-            export default {
-                name:'Category',
-                props:['title'],
-                //数据在子组件自身
-                data() {
-                    return {
-                        games:['红色警戒','穿越火线','劲舞团','超级玛丽']
-                    }
-                },
-            }
-        </script>
+        <span class="token operator">&lt;</span>script<span class="token operator">></span>
+            <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+                name<span class="token punctuation">:</span><span class="token string">'Category'</span><span class="token punctuation">,</span>
+                props<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token comment" spellcheck="true">//数据在子组件自身</span>
+                <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+                        games<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'红色警戒'</span><span class="token punctuation">,</span><span class="token string">'穿越火线'</span><span class="token punctuation">,</span><span class="token string">'劲舞团'</span><span class="token punctuation">,</span><span class="token string">'超级玛丽'</span><span class="token punctuation">]</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
 </li>
 </ol>
@@ -1173,11 +1174,11 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 </code></pre>
 </li>
 <li><p>实现切换（active-class可配置高亮样式）</p>
-<pre class=" language-vue"><code class="language-vue"><router-link active-class="active" to="/about">About</router-link>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>router<span class="token operator">-</span>link active<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"active"</span> to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
 </code></pre>
 </li>
 <li><p>指定展示位置</p>
-<pre class=" language-vue"><code class="language-vue"><router-view></router-view>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>
 </code></pre>
 </li>
 </ol>
@@ -1212,29 +1213,29 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 </code></pre>
 </li>
 <li><p>跳转（要写完整路径）：</p>
-<pre class=" language-vue"><code class="language-vue"><router-link to="/home/news">News</router-link>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/home/news"</span><span class="token operator">></span>News<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
 </code></pre>
 <h3><span id="4路由的query参数">4.路由的query参数</span></h3></li>
-<li><p>传递参数</p>
-<pre class=" language-vue"><code class="language-vue"><!-- 跳转并携带query参数，to的字符串写法 -->
-<router-link :to="/home/message/detail?id=666&title=你好">跳转</router-link>
+</ol>
+<p>1、传递参数</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 跳转并携带query参数，to的字符串写法 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link <span class="token punctuation">:</span>to<span class="token operator">=</span><span class="token string">"/home/message/detail?id=666&amp;title=你好"</span><span class="token operator">></span>跳转<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
                 
-<!-- 跳转并携带query参数，to的对象写法 -->
-<router-link :to="{
-        path:'/home/message/detail',
-        query:{
-           id:666,
-            title:'你好'
-        }
-    }">跳转</router-link>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 跳转并携带query参数，to的对象写法 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link 
+    <span class="token punctuation">:</span>to<span class="token operator">=</span>"<span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span><span class="token string">'/home/message/detail'</span><span class="token punctuation">,</span>
+        query<span class="token punctuation">:</span><span class="token punctuation">{</span>
+           id<span class="token punctuation">:</span><span class="token number">666</span><span class="token punctuation">,</span>
+            title<span class="token punctuation">:</span><span class="token string">'你好'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>"
+<span class="token operator">></span>跳转<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
 </code></pre>
-</li>
-<li><p>接收参数：</p>
+<p>2、接收参数：</p>
 <pre class=" language-js"><code class="language-js">$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id
 $route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>title
 </code></pre>
-</li>
-</ol>
 <h3><span id="5命名路由">5.命名路由</span></h3><ol>
 <li><p>作用：可以简化路由的跳转。</p>
 </li>
@@ -1261,20 +1262,22 @@ $route<span class="token punctuation">.</span>query<span class="token punctuatio
 </code></pre>
 </li>
 <li><p>简化跳转：</p>
-<pre class=" language-vue"><code class="language-vue"><!--简化前，需要写完整的路径 -->
-<router-link to="/demo/test/welcome">跳转</router-link>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>简化前，需要写完整的路径 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/demo/test/welcome"</span><span class="token operator">></span>跳转<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
 
-<!--简化后，直接通过名字跳转 -->
-<router-link :to="{name:'hello'}">跳转</router-link>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>简化后，直接通过名字跳转 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link <span class="token punctuation">:</span>to<span class="token operator">=</span><span class="token string">"{name:'hello'}"</span><span class="token operator">></span>跳转<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
 
-<!--简化写法配合传递参数 -->
-<router-link :to="{
-        name:'hello',
-        query:{
-           id:666,
-            title:'你好'
-        }
-    }">跳转</router-link>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>简化写法配合传递参数 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link 
+    <span class="token punctuation">:</span>to<span class="token operator">=</span>"<span class="token punctuation">{</span>
+        name<span class="token punctuation">:</span><span class="token string">'hello'</span><span class="token punctuation">,</span>
+        query<span class="token punctuation">:</span><span class="token punctuation">{</span>
+           id<span class="token punctuation">:</span><span class="token number">666</span><span class="token punctuation">,</span>
+            title<span class="token punctuation">:</span><span class="token string">'你好'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>"
+<span class="token operator">></span>跳转<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
 </code></pre>
 </li>
 </ol>
@@ -1305,17 +1308,19 @@ $route<span class="token punctuation">.</span>query<span class="token punctuatio
 </code></pre>
 </li>
 <li><p>传递参数</p>
-<pre class=" language-vue"><code class="language-vue"><!-- 跳转并携带params参数，to的字符串写法 -->
-<router-link :to="/home/message/detail/666/你好">跳转</router-link>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 跳转并携带params参数，to的字符串写法 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link <span class="token punctuation">:</span>to<span class="token operator">=</span><span class="token string">"/home/message/detail/666/你好"</span><span class="token operator">></span>跳转<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
                 
-<!-- 跳转并携带params参数，to的对象写法 -->
-<router-link :to="{
-        name:'xiangqing',
-        params:{
-           id:666,
-            title:'你好'
-        }
-    }">跳转</router-link>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 跳转并携带params参数，to的对象写法 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link 
+    <span class="token punctuation">:</span>to<span class="token operator">=</span>"<span class="token punctuation">{</span>
+        name<span class="token punctuation">:</span><span class="token string">'xiangqing'</span><span class="token punctuation">,</span>
+        params<span class="token punctuation">:</span><span class="token punctuation">{</span>
+           id<span class="token punctuation">:</span><span class="token number">666</span><span class="token punctuation">,</span>
+            title<span class="token punctuation">:</span><span class="token string">'你好'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>"
+<span class="token operator">></span>跳转<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
 </code></pre>
 <blockquote>
 <p>特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置！</p>
@@ -1385,9 +1390,9 @@ $route<span class="token punctuation">.</span>params<span class="token punctuati
 <li><p>作用：让不展示的路由组件保持挂载，不被销毁。</p>
 </li>
 <li><p>具体编码：</p>
-<pre class=" language-vue"><code class="language-vue"><keep-alive include="News"> 
-    <router-view></router-view>
-</keep-alive>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>keep<span class="token operator">-</span>alive include<span class="token operator">=</span><span class="token string">"News"</span><span class="token operator">></span> 
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>keep<span class="token operator">-</span>alive<span class="token operator">></span>
 </code></pre>
 <h3><span id="11两个新的生命周期钩子">11.两个新的生命周期钩子</span></h3></li>
 <li><p>作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。</p>
@@ -1861,7 +1866,7 @@ beforeRouteLeave <span class="token punctuation">(</span>to<span class="token pu
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">83.5k</span>
+                        class="white-color">83.9k</span>
             
             
             
