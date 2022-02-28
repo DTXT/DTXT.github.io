@@ -1435,7 +1435,7 @@ router<span class="token punctuation">.</span><span class="token function">after
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
-<li><p>独享守卫:【写在路由组件的路由】</p>
+<li><p>独享守卫:【写在路由组件的路由里】</p>
 <pre class=" language-js"><code class="language-js"><span class="token function">beforeEnter</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'beforeEnter'</span><span class="token punctuation">,</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>isAuth<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//判断当前路由是否需要进行权限控制</span>
