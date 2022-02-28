@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-22
+                    2022-02-28
                 </div>
                 
 
@@ -646,8 +646,7 @@
 <li><p>相关API：</p>
 <ol>
 <li><p><code>xxxxxStorage.setItem('key', 'value');</code></p>
-<pre><code>         该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
-         
+<pre><code> 该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
 </code></pre>
 </li>
 <li><p><code>xxxxxStorage.getItem('person');</code></p>
@@ -1409,7 +1408,7 @@ $route<span class="token punctuation">.</span>params<span class="token punctuati
 </li>
 <li><p>分类：全局守卫、独享守卫、组件内守卫</p>
 </li>
-<li><p>全局守卫:</p>
+<li><p>全局守卫:【写在路由组件里】</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//全局前置守卫：初始化时执行、每次路由切换前执行</span>
 router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'beforeEach'</span><span class="token punctuation">,</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span>
@@ -1436,7 +1435,7 @@ router<span class="token punctuation">.</span><span class="token function">after
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
-<li><p>独享守卫:</p>
+<li><p>独享守卫:【写在路由组件的路由】</p>
 <pre class=" language-js"><code class="language-js"><span class="token function">beforeEnter</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'beforeEnter'</span><span class="token punctuation">,</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>isAuth<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//判断当前路由是否需要进行权限控制</span>
@@ -1452,7 +1451,7 @@ router<span class="token punctuation">.</span><span class="token function">after
 <span class="token punctuation">}</span>
 </code></pre>
 </li>
-<li><p>组件内守卫：</p>
+<li><p>组件内守卫：【写在普通组件里，是一个函数】</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//进入守卫：通过路由规则，进入该组件时被调用</span>
 beforeRouteEnter <span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
