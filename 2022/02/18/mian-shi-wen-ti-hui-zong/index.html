@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-22
+                    2022-04-02
                 </div>
                 
 
@@ -824,6 +824,7 @@ int newCapacity = oldCapacity + ((capacityIncrement > 0) ?
 <blockquote>
 <p>隔离级别原理及解决问题分析：</p>
 </blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/myseries/p/10748912.html">数据库的4种隔离级别</a></p>
 <ol>
 <li><strong>读未提交</strong>：原理：直接读取数据，不能解决任何并发问题</li>
 <li><strong>读已提交</strong>：读操作不加锁，写操作加排他锁，解决了脏读。原理：利用MVCC实现，每一句语句执行前都会生成Read View（一致性视图）</li>
